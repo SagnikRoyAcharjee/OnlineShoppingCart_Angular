@@ -1,0 +1,83 @@
+<section class="vh-100">
+  <div class="container py-3 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-lg-3 col-xl-5">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-4">
+            <div class="row justify-content-center">
+              <div class="col-md-20 col-lg-15 col-xl-12 order-2 order-lg-1">
+
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                  <!--img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                    class="img-fluid" alt="Phone image">
+                  </div-->
+                  <div class="col-md-10 col-lg-8 col-xl-12 offset-xl-1">
+                    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+                      <!--div class="dropdown">
+                        <label for="lang">Login As</label>
+                        <br>
+                        <select name="Role" id="lang" [(ngModel)]="Role" style="width: 100%;
+              height: 30px;
+              border-radius: 6px;border: 1px solid #ced4da;min-height: calc(1.5em + 1rem + 2px);
+              padding: 0.5rem 1rem;
+              font-size: 1.25rem;font-weight: 400 !important">
+                          <option value=undefined selected>Select a Role</option>
+                          <option value="Customer">Customer</option>
+                          <option value="Admin">Admin</option>
+
+                        </select>
+                        </div-->
+                        <!-- Username input -->
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="formusername"><strong>Username</strong></label>
+                          <input type="text" id="formusername" class="form-control form-control-lg"
+                            formControlName="Username" required />
+                          <div class="form-text text-danger"
+                            *ngIf="Username.errors?.['required'] && (Username.dirty || Username.touched)">
+                            Username is required.
+                          </div>
+                          <div class="form-text text-danger"
+                            *ngIf="Username.errors?.['minLength'] ||  Username.errors?.['maxLength'] && (Username.dirty || Username.touched)">
+                            Username should be atleast 4 and at the max 15 characters long.
+                          </div>
+
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="formpassword"><strong>Password</strong></label>
+                          <input type="password" id="formpassword" class="form-control form-control-lg"
+                            formControlName="Password" required />
+                          <div class="form-text text-danger"
+                            *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">
+                            Password is required.
+                          </div>
+                          <div class="form-text text-danger"
+                            *ngIf="Password.errors?.['minLength'] ||  Password.errors?.['maxLength'] && (Password.dirty || Password.touched)">
+                            Password should be atleast 3 and at the max 15 characters long.
+                          </div>
+
+                        </div>
+
+
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-lg btn-block"
+                          [disabled]="loginForm.invalid">Login</button>
+
+
+
+
+
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</section>
