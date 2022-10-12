@@ -1,63 +1,144 @@
-<section class="vh-100" >
+<!-- <section class="vh-100" >
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-4 col-xl-6">
-          <div class="card text-black" style="border-radius: 75px;">
+          <div class="card text-black" style="border-radius: 0px;">
             <div class="card-body p-md-2">
               <div class="row justify-content-center">
-                <div class="col-md-25 col-lg-20 col-xl-12 order-2 order-lg-1">
-  
-                  <p class="text-center h6 fw-bold mb-5 mx-1 mx-md-4 mt-4">Enter your credentials to create an account</p>
+                <div class="col-md-25 col-lg-20 col-xl-12 order-2 order-lg-1"> -->
+
+                  <div class="top">
+                    <nav class="navbar navbar-dark bg-dark">
+                      <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                          <img
+                            src="https://crazyukti.in/wp-content/uploads/2021/09/IMG_20210909_175725.png"
+                            class="me-2"
+                            height="20"
+                            alt="shopsy Logo"
+                            loading="lazy"
+                          />
+                          <small>SHOPSY.com</small>
+                        </a>
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" [routerLink]="['/login']"      id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">Login</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill" data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" aria-selected="false">Register</button>
+                          </li>
+                          <!-- <li class="nav-item" role="presentation">
+                            <button class="nav-link" [routerLink]="['/home-page']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">View Home Page</button>
+                          </li> -->
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" [routerLink]="['']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Back</button>
+                          </li>
+                          
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+                          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                        </div>
+                        
+                      </div>
+                      
+                      <!-- <div class="bg-text">
+                          <h1><strong>SHOPSY</strong></h1>
+                          <p>The goto platform for your best shopping experience</p>
+                          <p>Hurry Up ! To avail the best products of your choice with reliable benefits only for you.
+                            Place Order of your choice making smooth transactions and getting items at your door step as soon as possible.
+                          </p>
+                        </div> -->
+                      
+                    </nav>
+                  <div class="bg-text">
+                  <!-- <p class="text-center h6 fw-bold mb-5 mx-1 mx-md-4 mt-4">Enter your credentials to create an account</p> -->
                   <form class="mx-1 mx-md-1" #form="ngForm" (submit)="onSubmit(form)" >
-      <input type="hidden" name="Id" [value]="service.formData.Id" >
-      <input type="hidden" name="Role" #Role="ngModel" [(ngModel)]="service.formData.Role" >
+      <input type="hidden" name="id" [value]="service.formData.id" >
+      <input type="hidden" name="role" #role="ngModel" [(ngModel)]="service.formData.role" >
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-2">
+                      <div class="form-outline flex-fill ">
                         <label class="form-label" for="name"><strong>Name</strong> </label>
-                        <input type="text" id="name"  placeholder="name" name="Name" #Name="ngModel"[(ngModel)]="service.formData.Name" class="form-control" />
+                        <input type="text" id="name"  placeholder="name" name="name" #name="ngModel"[(ngModel)]="service.formData.name" class="form-control" />
 
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-2">
+                      <div class="form-outline flex-fill ">
                         <label class="form-label" for="username"><strong>Username</strong></label>
-                        <input type="text" id="username"  placeholder="username" name="Username" #Username="ngModel" [(ngModel)]="service.formData.Username" class="form-control"
-                        required maxlength="10" minlength="3" [class.invalid]="Username.invalid && Username.touched" />
+                        <input type="text" class="form-control" id="username"  placeholder="username" name="username" ngModel #username="ngModel" [(ngModel)]="service.formData.username"
+                        required
+                       /> 
+                        <div class="form-text text-danger"
+                            *ngIf="username.errors?.['required'] && (username.dirty || username.touched)">
+                            Username is required.
+                          </div>
+                          <div class="form-text text-danger"
+                            *ngIf="username.errors?.['minLength'] ||  username.errors?.['maxLength'] && (username.dirty || username.touched)">
+                            Username should be atleast 3 and at the max 15 characters long.
+                          </div>
 
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-2">
+                        <div class="form-outline flex-fill ">
                           <label class="form-label" for="address"><strong>Address</strong></label>
-                          <input type="text" id="address"  placeholder="address" name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" class="form-control"
-                           maxlength="50" minlength="8" />
+                          <input type="text" id="address"  placeholder="address" name="address" #address="ngModel" [(ngModel)]="service.formData.address" class="form-control"
+                            />
+                           <div class="form-text text-danger"
+                            *ngIf="address.errors?.['minLength'] ||  address.errors?.['maxLength'] && (address.dirty || address.touched)">
+                            Address should be atleast 8 and at the max 50 characters long.
+                          </div>
 
                         </div>
                       </div>
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-2">
+                        <div class="form-outline flex-fill ">
                           <label class="form-label" for="email"><strong>Email</strong></label>
-                          <input type="email" id="email"  placeholder="email address" name="Email"   #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control"
-                           maxlength="50" minlength="3"/>
+                          <input type="email" id="email"  placeholder="email address" name="email"   #email="ngModel" [(ngModel)]="service.formData.email" class="form-control"
+                          required />
+                          <div class="form-text text-danger"
+                            *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">
+                            Email is required.
+                          </div>
+                          <div class="form-text text-danger"
+                            *ngIf="email.errors?.['minLength'] ||  email.errors?.['maxLength'] && (email.dirty || email.touched)">
+                            Password should be atleast 3 and at the max 50 characters long.
+                          </div>
+                          <div class="form-text text-danger"
+                            *ngIf="registerform.controls.email.hasError('email')">
+                            Email is invalid.
+                            Ex: user@example.com
+                          </div>
                          
                         </div>
                       </div>
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-2">
+                        <div class="form-outline flex-fill ">
                           <label class="form-label" for="number"><strong>Phone No.</strong></label>
-                          <input type="number" id="number"  placeholder="calling no." name="PhoneNo" #PhoneNo="ngModel" [(ngModel)]="service.formData.PhoneNo" class="form-control"
-                          required maxlength="10" minlength="10" [class.invalid]="PhoneNo.invalid && PhoneNo.touched" />
+                          <input type="number" id="number"  placeholder="calling no." name="phoneNo" #phoneNo="ngModel" [(ngModel)]="service.formData.phoneNo" class="form-control"
+                          required />
+                          <div class="form-text text-danger"
+                            *ngIf="phoneNo.errors?.['required'] && (phoneNo.dirty || phoneNo.touched)">
+                            Phone number  is required.
+                          </div>
+                          <div class="form-text text-danger"
+                            *ngIf="phoneNo.errors?.['minLength'] ||  phoneNo.errors?.['maxLength'] && (phoneNo.dirty || phoneNo.touched)">
+                            Phone no should be in the correct format.
+                          </div>
+                          
                           
                         </div>
                       </div>
-                      <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-2">
                           <label class="form-label" for="birthdate"><strong>Date Of Birth</strong></label>
@@ -65,33 +146,50 @@
                          />
                           
                         </div>
-                      </div>
+                      </div> -->
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-2">
+                      <div class="form-outline flex-fill ">
                         <label class="form-label" for="password"><strong>Password</strong></label>
-                        <input type="password" id="password"  placeholder="password" name="Password" #Passowrd="ngModel" [(ngModel)]="service.formData.Password" class="form-control"
-                        required maxlength="10" minlength="3"  />
+                        <input type="password" id="password"  placeholder="password" name="password" #password="ngModel" [(ngModel)]="service.formData.password" class="form-control"
+                        required  />
+                        <div class="form-text text-danger"
+                            *ngIf="password.errors?.['required'] && (password.dirty || password.touched) ">
+                            Password is required.
+                          </div>
+                          <div class="form-text text-danger"
+                            *ngIf="password.errors?.['minLength'] ||  password.errors?.['maxLength'] && (password.dirty || password.touched)">
+                            Password should be atleast 3 and at the max 15 characters long.
+                          </div>
 
                       </div>
                     </div>
   
-                    <div class="d-flex flex-row align-items-center mb-4">
+                    <!-- <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-2">
                         <label class="form-label" for="confirmpass"><strong>Confirm password</strong></label>
                         <input type="password" id="confirmpass"  placeholder="confirm password" name="ConfirmPass" #ConfirmPass="ngModel" [(ngModel)]="service.formData.ConfirmPass" class="form-control"
                         required maxlength="10" minlength="3" />
-                        
+                        <div class="form-text text-danger"
+                            *ngIf="ConfirmPass.errors?.['required'] && (ConfirmPass.dirty || ConfirmPass.touched)">
+                            Password confirmation  is required.
+                          </div>
                       </div>
-                    </div>
+                    </div> -->
   
                     
-  
-                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="submit" class="btn btn-primary btn-lg" [disabled]="form.invalid">Register</button>
+                    <div class="container">
+                    <div class="d-flex justify-content-center mx-1 mb-1 mb-lg-1">
+                      <button type="submit" class="btn btn-success btn-sm" [disabled]="form.invalid">Register</button>
                     </div>
+
+                    <div class="d-flex justify-content-center ">
+                      <!-- <button type="submit" class="btn btn-primary btn-sm" [routerLink]="['']" > Go Back</button> -->
+                    </div>
+                    </div>
+                    
   
                   </form>
   
@@ -102,13 +200,25 @@
                     class="img-fluid" alt="Sample image"-->
   
                 </div>
-              </div>
+              
+              <!-- </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+  <footer class="bg-dark text-center text-white" > 
+    <!-- Grid container -->
+    
+  
+    <!-- Copyright -->
+     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" >Online Shopping - SHOPSY.com</a>
+    </div> 
+    <!-- Copyright -->
+  </footer> 
 
   <!-- <div class="signupFrm">
     <form   #form="ngForm" (submit)="onSubmit(form)">

@@ -2,15 +2,15 @@ import { EmailValidator } from "@angular/forms";
 
 
 export class RegisterUser {
-    Id:number=0;
-    Role:string='';
-    Name:string='';
-    Username:string='';
-    Address:string='';
-    Email:string='';
-    PhoneNo:number=0;
-    DateOfBirth:string='';
-    Password:string='';
-    ConfirmPass:string='';
+    id:number=0;
+    role:string='';
+    name:string='';
+    username:string='';
+    address:string='';
+    email:string='';
+    phoneNo:number=0;
+    // DateOfBirth:string='';
+    password:string='';
+    // ConfirmPass:string='';
 
 }

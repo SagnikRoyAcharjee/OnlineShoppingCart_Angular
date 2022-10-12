@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule }from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS }from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
@@ -14,16 +14,25 @@ import {  RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RegisterUser } from './MODELS/RegisterUser';
 import { RegisterUserService } from './SERVICES/AccountService/register-user.service';
+import { FormBuilder } from '@angular/forms';
+import { CategoryServiceService } from './SERVICES/AdminService/category-service.service';
+import { HttpInterceptorService } from './SERVICES/AccountService/http-interceptor.service';
+// import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-   LoginComponent,
+   LoginComponent, 
    RegisterComponent,
    HomePageComponent,
    CategoryComponent,
    ProductComponent,
    WelcomeComponent
+   
+   
+ 
+   
   ],
   imports: [
     BrowserModule,
@@ -32,10 +41,17 @@ import { RegisterUserService } from './SERVICES/AccountService/register-user.ser
     FormsModule,
     ReactiveFormsModule,
     CommonModule
+  
+  
     
   
   ],
-  providers: [RegisterUserService],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:HttpInterceptorService,
+    multi:true
+} ,
+    RegisterUserService,CategoryServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

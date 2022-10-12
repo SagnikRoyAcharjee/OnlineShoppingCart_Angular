@@ -7,25 +7,29 @@ import { Login } from 'src/app/MODELS/Login.model';
   providedIn: 'root'
 })
 export class LoginService {
-  Username:any;
-  Password:any;
-
+  username:any;
+  uassword:any;
+  role:any;
+  login:Login=new Login();
   constructor(private http:HttpClient) { }
 
   baseUrl='https://localhost:7143/api/Login'
    
   
-   loginUser(Login:any){
-    return this.http.post(
-      this.baseUrl,
-      {
-        Username: Login[0],
-        Password: Login[1],
-      },
-      {
-        responseType:"text",
-      }
-
-    );
-   }
+   loginUser(login:any){
+    return this.http.post<any>(
+      this.baseUrl, login)
+      //{
+        // Username: Login[0],
+        // Password: Login[1],
+        // role:Login[2]
+        
+      //},
+      //{
+        //responseType:"text",
+      //}
+    }
+   GetToken(){
+    return localStorage.getItem('token')||''
+  }
 }

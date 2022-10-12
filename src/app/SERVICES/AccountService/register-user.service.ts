@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { RegisterUser } from 'src/app/MODELS/RegisterUser';
 
 
@@ -17,5 +18,9 @@ export class RegisterUserService {
 
   UserRegistration(){
     return this.http.post(this.baseUrl ,this.formData);
+  }
+
+  getUserByUsername(uName:string):Observable<RegisterUser[]>{
+    return this.http.get<RegisterUser[]>(`${this.baseUrl}?username=${uName}`);
   }
 }

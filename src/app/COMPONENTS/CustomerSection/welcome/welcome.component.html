@@ -21,8 +21,11 @@
         <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['register']" id="pills-register-tab" data-bs-toggle="pill" data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" aria-selected="false">Register</button>
         </li>
-        <li class="nav-item" role="presentation">
+        <!-- <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['home-page']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">View Home Page</button>
+        </li> -->
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" [routerLink]="['/category']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
         </li>
         
       </ul>
@@ -37,6 +40,26 @@
     <div class="bg-text">
         <h1><strong>SHOPSY</strong></h1>
         <p>The goto platform for your best shopping experience</p>
+        <p>Hurry Up ! To avail the best products of your choice with reliable benefits only for you.
+          Place Order of your choice making smooth transactions and getting items at your door step as soon as possible.
+        </p>
+        <br>
+        <div class="d-flex justify-content-center ">
+          <button type="submit" class="btn btn-danger btn-sm" [routerLink]="['home-page']" >Shop Now</button>
+        </div>
       </div>
     
   </nav>
+
+
+  <footer class="bg-dark text-center text-white" >
+    
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" >Online Shopping - SHOPSY.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
