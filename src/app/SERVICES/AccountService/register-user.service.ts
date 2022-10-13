@@ -20,8 +20,11 @@ export class RegisterUserService {
     return this.http.post(this.baseUrl ,this.formData);
   }
 
-  getUserByUsername(){
+  // getUserByUsername(){
   
-    return this.http.get(this.baseUrl)
+  //   return this.http.get(this.baseUrl)
+  // }
+  getUserByUsername(username:string){
+ return this.http.get<RegisterUser[]>(`${this.baseUrl}?username=${username}`)
   }
 }

@@ -7,8 +7,10 @@ import { ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
+
 import { AsyncValidator } from '@angular/forms';
 import { map, Observable } from 'rxjs';
+import { FilterPipe } from 'src/app/SHARED/Pipe/filter.pipe';
 
 @Component({
   selector: 'app-register',
@@ -28,7 +30,7 @@ export class RegisterComponent implements OnInit {
   userList:any=[];
   registerform=new FormGroup({
     
-       Username:new FormControl("",[Validators.required,
+       username:new FormControl("",[Validators.required,
        Validators.minLength(3),
        Validators.maxLength(15),
       
@@ -66,14 +68,14 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(form:NgForm){
 
-    let isUserValid=this.userList.filter((data:any)=>{
-      return this.service.formData.Username == data.username;
-    }
-    )
-    if(isUserValid.length>0){
-      alert("User already exist");
-    }
-    else{
+    // let isUserValid=this.userList.filter((data:any)=>{
+    //   return this.service.formData.Username == data.username;
+    // }
+    // )
+    // if(isUserValid.Length>0){
+    //   alert("User already exist");
+    // }
+    // else{
     this.service.UserRegistration().subscribe(
     res=>{
       
@@ -86,7 +88,7 @@ export class RegisterComponent implements OnInit {
     }
     );
   }
-  }
+  
   
   // validate(u :AbstractControl):Promise<ValidationErrors | null> |Observable<ValidationErrors | null>{
   //   return this.service.getUserByUsername(u.value).pipe(
@@ -96,13 +98,15 @@ export class RegisterComponent implements OnInit {
   //   );
   // }
   
-  getUserByUsername()
-  {
-    this.service.getUserByUsername().subscribe(res =>
-      {
-        this.userList=res;
-      })
-  }
+  // getUserByUsername()
+  // {
+  //   this.service.getUserByUsername().subscribe(res =>
+  //     {
+  //       this.userList=res;
+  //     })
+  // }
+
+  
 }
   
   

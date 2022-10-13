@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CategoryComponent } from './COMPONENTS/AdminSection/category/category.component';
 import { ProductComponent } from './COMPONENTS/AdminSection/product/product.component';
 import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
+
 import { LoginComponent } from './COMPONENTS/CustomerSection/login/login.component';
 import { RegisterComponent } from './COMPONENTS/CustomerSection/register/register.component';
 import { WelcomeComponent } from './COMPONENTS/CustomerSection/welcome/welcome.component';

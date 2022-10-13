@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule, HTTP_INTERCEPTORS }from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
+
 import { LoginComponent } from './COMPONENTS/CustomerSection/login/login.component';
 import { RegisterComponent } from './COMPONENTS/CustomerSection/register/register.component';
 import { FormGroup, FormsModule,ReactiveFormsModule} from '@angular/forms';
@@ -18,6 +18,8 @@ import { FormBuilder } from '@angular/forms';
 import { CategoryServiceService } from './SERVICES/AdminService/category-service.service';
 import { HttpInterceptorService } from './SERVICES/AccountService/http-interceptor.service';
 import { PageNotFoundComponent } from './SHARED/Component/page-not-found/page-not-found.component';
+import { UniqueUsernameValidatorDirective } from './SHARED/Directive/unique-username-validator.directive';
+import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
 // import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
@@ -26,11 +28,13 @@ import { PageNotFoundComponent } from './SHARED/Component/page-not-found/page-no
     AppComponent,
    LoginComponent, 
    RegisterComponent,
-   HomePageComponent,
+   
    CategoryComponent,
    ProductComponent,
    WelcomeComponent,
-   PageNotFoundComponent
+   PageNotFoundComponent,
+   UniqueUsernameValidatorDirective,
+   HomePageComponent
    
    
  

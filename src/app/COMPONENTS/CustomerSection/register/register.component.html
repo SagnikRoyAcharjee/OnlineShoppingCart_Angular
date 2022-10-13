@@ -70,15 +70,21 @@
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill ">
                         <label class="form-label" for="username"><strong>Username</strong></label>
-                        <input type="text" class="form-control" id="username"  placeholder="username" name="Username" ngModel #Username="ngModel" [(ngModel)]="service.formData.Username"
-                        required
-                       /> 
+                        <input type="text" class="form-control" id="username"  placeholder="username" name="username" ngModel #username="ngModel" [(ngModel)]="service.formData.username"
+                       required  />
+                       <!-- uniqueUsername -->
+                       
+                       <!-- <div class="text-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <div *ngIf="username.errors?.['required']">Username is required</div>
+                        <div *ngIf="username.errors?.['uniqueUsername']">Username already exists</div> -->
+                       <!-- Username already exists. -->
+                      <!-- </div> -->
                         <div class="form-text text-danger"
-                            *ngIf="Username.errors?.['required'] && (Username.dirty || Username.touched)">
+                            *ngIf="username.errors?.['required'] && (username.dirty || username.touched)">
                             Username is required.
                           </div>
                           <div class="form-text text-danger"
-                            *ngIf="Username.errors?.['minLength'] ||  Username.errors?.['maxLength'] && (Username.dirty || Username.touched)">
+                            *ngIf="username.errors?.['minLength'] ||  username.errors?.['maxLength'] && (username.dirty || username.touched)">
                             Username should be atleast 3 and at the max 15 characters long.
                           </div>
 

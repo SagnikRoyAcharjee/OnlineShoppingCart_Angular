@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "ShoppingCartSystem",
+			"path": "../../../../.."
+		},
+		{
+			"name": "AtoZSolutionsUsersManagement",
+			"path": "../../../../../../../AtoZSolutionsAngular/AtoZSolutionsUsersManagement"
+		}
+	],
+	"settings": {}
+}

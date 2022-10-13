@@ -92,6 +92,9 @@
                 <option>Admin</option>
                 <option>Customer</option>
               </select>
+              <div class="form-text text-danger"  *ngIf="Role.errors?.['required'] && Role.touched ">
+                Role is required.
+              </div>
               <!-- <div class="form-check form-check-inline">
                             <input
                               mdbRadio
@@ -130,7 +133,7 @@
                   Name is required.
                 </div>
                 </div> -->
-                <!-- <div class="form-text text-danger"
+              <!-- <div class="form-text text-danger"
                             *ngIf="username.errors?.['required'] && (username.dirty || username.touched)">
                             Username is required.
                           </div>
@@ -138,16 +141,19 @@
                             *ngIf="username.errors?.['minLength'] ||  username.errors?.['maxLength'] && (username.dirty || username.touched)">
                             Username should be atleast 3 and at the max 15 characters long.
                           </div> -->
-
+              <div class="form-text text-danger"  *ngIf="UserName.errors?.['required'] && UserName.touched ">
+                Username is required.
               </div>
-              <br>
+            
+            </div>
+            <br>
 
-              <!-- Password input -->
-              <div class="form-outline mb-3">
-                <label class="form-label" for="formpassword"><strong>Password</strong></label>
-                <input type="password" name="password" id="formpassword" placeholder="password"
-                  class="form-control form-control-lg" formControlName="password" required />
-                <!-- <div class="form-text text-danger"
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <label class="form-label" for="formpassword"><strong>Password</strong></label>
+              <input type="password" name="password" id="formpassword" placeholder="password"
+                class="form-control form-control-lg" formControlName="password" required />
+              <!-- <div class="form-text text-danger"
                             *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">
                             Password is required.
                           </div>
@@ -155,23 +161,25 @@
                             *ngIf="password.errors?.['minLength'] ||  password.errors?.['maxLength'] && (password.dirty || password.touched)">
                             Password should be atleast 3 and at the max 15 characters long.
                           </div>  -->
+                          <div class="form-text text-danger"  *ngIf="Password.errors?.['required'] && Password.touched ">
+                            Password is required.
+                          </div>
+            </div>
 
+            <br>
+
+            <div class="btn-group">
+              <!-- Submit button -->
+              <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2">
+                <button type="submit" class="btn btn-success btn-sm btn-block" (click)="loginSubmit()"
+                  [disabled]="form.invalid">Login</button>
               </div>
 
-              <br>
 
-              <div class="btn-group">
-                <!-- Submit button -->
-                <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2">
-                  <button type="submit" class="btn btn-success btn-sm btn-block" (click)="loginSubmit()"
-                    [disabled]="form.invalid">Login</button>
-                </div>
-
-
-                <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2 ">
-                  <button type="submit" class="btn btn-primary btn-sm btn-block" [routerLink]="['']">Go Back</button>
-                </div>
+              <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2 ">
+                <button type="submit" class="btn btn-primary btn-sm btn-block" [routerLink]="['']">Go Back</button>
               </div>
+            </div>
 
           </form>
 

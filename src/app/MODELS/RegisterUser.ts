@@ -5,7 +5,7 @@ export class RegisterUser {
     id:number=0;
     role:string='';
     name:string='';
-    Username:string='';
+    username:string='';
     address:string='';
     email:string='';
     phoneNo:number=0;

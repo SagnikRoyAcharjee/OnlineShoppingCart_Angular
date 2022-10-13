@@ -90,7 +90,15 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
+ get UserName():FormControl{
+  return this.loginForm.get("username") as FormControl;
+ }
+ get Password():FormControl{
+  return this.loginForm.get("password") as FormControl;
+ }
+ get Role():FormControl{
+  return this.loginForm.get("role") as FormControl;
+ }
 
   // this.loginService
   //   .loginUser([this.loginForm.value.username, this.loginForm.value.password,this.loginForm.value.role])
