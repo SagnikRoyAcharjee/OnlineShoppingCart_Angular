@@ -1,40 +1,41 @@
-
 <div class="top">
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img
-          src="https://crazyukti.in/wp-content/uploads/2021/09/IMG_20210909_175725.png"
-          class="me-2"
-          height="20"
-          alt="shopsy Logo"
-          loading="lazy"
-        />
+        <img src="https://crazyukti.in/wp-content/uploads/2021/09/IMG_20210909_175725.png" class="me-2" height="20"
+          alt="shopsy Logo" loading="lazy" />
         <small>SHOPSY.com</small>
       </a>
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" [routerLink]="['login']"      id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">Login</button>
+          <button class="nav-link active" [routerLink]="['login']" id="pills-login-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
+            aria-selected="true">Login</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill" data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" aria-selected="false">Register</button>
+          <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
+            aria-selected="false">Register</button>
         </li>
         <!-- <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['/home-page']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">View Home Page</button>
         </li> -->
         <li class="nav-item" role="presentation">
-          <button class="nav-link" [routerLink]="['/category']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
+          <button class="nav-link" [routerLink]="['/category']" id="pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+            aria-selected="false">Admin</button>
         </li>
-        
+
       </ul>
       <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...
+        </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
       </div>
-      
+
     </div>
-    
+
     <!-- <div class="bg-text">
         <h1><strong>SHOPSY</strong></h1>
         <p>The goto platform for your best shopping experience</p>
@@ -42,7 +43,7 @@
           Place Order of your choice making smooth transactions and getting items at your door step as soon as possible.
         </p>
       </div> -->
-    
+
   </nav>
 
 </div>
@@ -50,9 +51,9 @@
 <div class="bg-text">
   <p style="text-align:center"><strong>Log in to your account.</strong></p>
   <br>
-<div class="top">
+  <div class="top">
 
-<!-- <section class="vh-90">
+    <!-- <section class="vh-90">
   <div class="container py-3 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-lg-3 col-xl-7">
@@ -60,14 +61,14 @@
           <div class="card-body p-md-3">
             <div class="row justify-content-center">
               <div class="col-md-25 col-lg-17 col-xl-15 order-3 order-lg-1"> -->
-              <div class="form-center">
-                <div class="col-md-8 col-lg-7 col-xl-6">
-                  <!--img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+    <div class="form-center">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <!--img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                     class="img-fluid" alt="Phone image">
                   </div-->
-                  <div class="col-md-15 col-lg-15 col-xl-20 offset-xl-1">
-                    <form #form="ngForm" [formGroup]="loginForm">
-                      <!--div class="dropdown">
+        <div class="col-md-15 col-lg-15 col-xl-20 offset-xl-1">
+          <form #form="ngForm" [formGroup]="loginForm">
+            <!--div class="dropdown">
                         <label for="lang">Login As</label>
                         <br>
                         <select name="Role" id="lang" [(ngModel)]="Role" style="width: 100%;
@@ -81,25 +82,55 @@
 
                         </select>
                         </div-->
-                        <!-- Username input -->
-                        <!-- <input type="hidden" name="role" #role="ngModel" [(ngModel)]="loginService.Role" > -->
-                        <div class="form-group">
-                          <label for="role">Log in as</label>
-                          <!-- <input type="text" name="categoryId" [(ngModel)]="product.categoryId"> -->
-                        <select name="role" class="form-control"  formControlName="role" required>
-                          <option>--Select Role--</option>
-                          <option>Admin</option>
-                          <option>Customer</option>
-                          </select>
-                  <br>
-                        </div>
-                        <!-- <input type="hidden" id="forRole" class="form-control form-control-lg"
-                            formControlName="role"  /> --> 
-                        <div class="form-outline mb-6">
-                          <label class="form-label" for="formusername"><strong>Username</strong></label>
-                          <input type="text" name="username" id="formusername" class="form-control form-control-lg" 
-                           formControlName="username" required />
-                          <!-- <div class="form-text text-danger"
+            <!-- Username input -->
+            <!-- <input type="hidden" name="role" #role="ngModel" [(ngModel)]="loginService.Role" > -->
+            <div class="form-group">
+              <label for="role">Log in as</label>
+              <!-- <input type="text" name="categoryId" [(ngModel)]="product.categoryId"> -->
+              <select name="role" class="form-control" formControlName="role" required>
+                <option>--Select Role--</option>
+                <option>Admin</option>
+                <option>Customer</option>
+              </select>
+              <!-- <div class="form-check form-check-inline">
+                            <input
+                              mdbRadio
+                              class="form-check-input"
+                              type="radio"
+                              name="role"
+                              id="inlineRadio1"
+                              value="option1"
+                              formControlName="role"
+                            />
+                            <label class="form-check-label" for="inlineRadio1">Admin</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              mdbRadio
+                              class="form-check-input"
+                              type="radio"
+                              name="role"
+                              id="inlineRadio2"
+                              value="option2"
+                              formControlName="role"
+                            />
+                            <label class="form-check-label" for="inlineRadio2">Customer</label>
+                          </div> -->
+              <br>
+            </div>
+            <!-- <input type="hidden" id="forRole" class="form-control form-control-lg"
+                            formControlName="role"  /> -->
+            <div class="form-outline mb-6">
+              <label class="form-label" for="username"><strong>Username</strong></label>
+              <input type="text" name="username" id="username" placeholder="username"
+                class="form-control form-control-lg" formControlName="username" required />
+              <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)" class="form-text form-danger">
+
+                <div *ngIf="username.errors?.['required']">
+                  Name is required.
+                </div>
+                </div> -->
+                <!-- <div class="form-text text-danger"
                             *ngIf="username.errors?.['required'] && (username.dirty || username.touched)">
                             Username is required.
                           </div>
@@ -108,15 +139,15 @@
                             Username should be atleast 3 and at the max 15 characters long.
                           </div> -->
 
-                        </div>
-                        <br>
+              </div>
+              <br>
 
-                        <!-- Password input -->
-                        <div class="form-outline mb-3">
-                          <label class="form-label" for="formpassword"><strong>Password</strong></label>
-                          <input type="password" name="password" id="formpassword" class="form-control form-control-lg" 
-                           formControlName="password" required />
-                           <!-- <div class="form-text text-danger"
+              <!-- Password input -->
+              <div class="form-outline mb-3">
+                <label class="form-label" for="formpassword"><strong>Password</strong></label>
+                <input type="password" name="password" id="formpassword" placeholder="password"
+                  class="form-control form-control-lg" formControlName="password" required />
+                <!-- <div class="form-text text-danger"
                             *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">
                             Password is required.
                           </div>
@@ -125,31 +156,31 @@
                             Password should be atleast 3 and at the max 15 characters long.
                           </div>  -->
 
-                        </div>
-
-                        <br>
-
-                        <div class="btn-group">
-                        <!-- Submit button -->
-                        <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2">
-                        <button type="submit" class="btn btn-success btn-sm btn-block" (click)="loginSubmit()"
-                          [disabled]="form.invalid">Login</button>
-                          </div>
-
-
-                          <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2 ">
-                            <button type="submit" class="btn btn-primary btn-sm btn-block"  [routerLink]="['']" >Go Back</button>
-                          </div>
-                      </div>
-
-                    </form>
-
-                  </div>
-                </div> 
               </div>
-            </div>
-            </div> 
-          <!-- </div>
+
+              <br>
+
+              <div class="btn-group">
+                <!-- Submit button -->
+                <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2">
+                  <button type="submit" class="btn btn-success btn-sm btn-block" (click)="loginSubmit()"
+                    [disabled]="form.invalid">Login</button>
+                </div>
+
+
+                <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2 ">
+                  <button type="submit" class="btn btn-primary btn-sm btn-block" [routerLink]="['']">Go Back</button>
+                </div>
+              </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div>
         </div>
       </div>
     </div>
@@ -157,14 +188,14 @@
 </section>
 </div>
 </div> -->
-<footer class="bg-dark text-center text-white" >
+<footer class="bg-dark text-center text-white">
   <!-- Grid container -->
-  
+
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2022 Copyright:
-    <a class="text-white" >Online Shopping - SHOPSY.com</a>
+    <a class="text-white">Online Shopping - SHOPSY.com</a>
   </div>
   <!-- Copyright -->
 </footer>

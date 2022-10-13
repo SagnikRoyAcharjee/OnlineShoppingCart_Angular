@@ -70,15 +70,15 @@
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill ">
                         <label class="form-label" for="username"><strong>Username</strong></label>
-                        <input type="text" class="form-control" id="username"  placeholder="username" name="username" ngModel #username="ngModel" [(ngModel)]="service.formData.username"
+                        <input type="text" class="form-control" id="username"  placeholder="username" name="Username" ngModel #Username="ngModel" [(ngModel)]="service.formData.Username"
                         required
                        /> 
                         <div class="form-text text-danger"
-                            *ngIf="username.errors?.['required'] && (username.dirty || username.touched)">
+                            *ngIf="Username.errors?.['required'] && (Username.dirty || Username.touched)">
                             Username is required.
                           </div>
                           <div class="form-text text-danger"
-                            *ngIf="username.errors?.['minLength'] ||  username.errors?.['maxLength'] && (username.dirty || username.touched)">
+                            *ngIf="Username.errors?.['minLength'] ||  Username.errors?.['maxLength'] && (Username.dirty || Username.touched)">
                             Username should be atleast 3 and at the max 15 characters long.
                           </div>
 
@@ -103,17 +103,17 @@
                         <div class="form-outline flex-fill ">
                           <label class="form-label" for="email"><strong>Email</strong></label>
                           <input type="email" id="email"  placeholder="email address" name="email"   #email="ngModel" [(ngModel)]="service.formData.email" class="form-control"
-                          required />
+                          required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                           <div class="form-text text-danger"
                             *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">
                             Email is required.
                           </div>
                           <div class="form-text text-danger"
                             *ngIf="email.errors?.['minLength'] ||  email.errors?.['maxLength'] && (email.dirty || email.touched)">
-                            Password should be atleast 3 and at the max 50 characters long.
+                            Email should be atleast 3 and at the max 50 characters long.
                           </div>
                           <div class="form-text text-danger"
-                            *ngIf="registerform.controls.email.hasError('email')">
+                            *ngIf="email.errors?.['pattern'] && email.touched">
                             Email is invalid.
                             Ex: user@example.com
                           </div>
@@ -125,7 +125,11 @@
                         <div class="form-outline flex-fill ">
                           <label class="form-label" for="number"><strong>Phone No.</strong></label>
                           <input type="number" id="number"  placeholder="calling no." name="phoneNo" #phoneNo="ngModel" [(ngModel)]="service.formData.phoneNo" class="form-control"
-                          required />
+                          required  pattern="^((\\+91-?)|0)?[0-9]{10}$"/>
+                          <div  class="form-text text-danger">   
+                            <div *ngIf="phoneNo.errors?.['pattern']">Please, Enter 10 digit Mobile Number.</div>  
+                             </div> 
+
                           <div class="form-text text-danger"
                             *ngIf="phoneNo.errors?.['required'] && (phoneNo.dirty || phoneNo.touched)">
                             Phone number  is required.
@@ -134,6 +138,11 @@
                             *ngIf="phoneNo.errors?.['minLength'] ||  phoneNo.errors?.['maxLength'] && (phoneNo.dirty || phoneNo.touched)">
                             Phone no should be in the correct format.
                           </div>
+                          <!-- <div class="form-text text-danger"
+                            *ngIf="phoneNo.errors?.['pattern'] && phoneNo.touched">
+                            Phone number is invalid.
+                            
+                          </div> -->
                           
                           
                         </div>

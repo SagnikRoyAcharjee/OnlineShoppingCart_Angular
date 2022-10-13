@@ -8,6 +8,7 @@ import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-p
 import { LoginComponent } from './COMPONENTS/CustomerSection/login/login.component';
 import { RegisterComponent } from './COMPONENTS/CustomerSection/register/register.component';
 import { WelcomeComponent } from './COMPONENTS/CustomerSection/welcome/welcome.component';
+import { PageNotFoundComponent } from './SHARED/Component/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
      path:'product',
      component:ProductComponent
   },
+  {
+    path:'**',
+    component:PageNotFoundComponent
+  }
   
   
   

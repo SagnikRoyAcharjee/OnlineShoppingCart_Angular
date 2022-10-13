@@ -20,7 +20,8 @@ export class RegisterUserService {
     return this.http.post(this.baseUrl ,this.formData);
   }
 
-  getUserByUsername(uName:string):Observable<RegisterUser[]>{
-    return this.http.get<RegisterUser[]>(`${this.baseUrl}?username=${uName}`);
+  getUserByUsername(){
+  
+    return this.http.get(this.baseUrl)
   }
 }

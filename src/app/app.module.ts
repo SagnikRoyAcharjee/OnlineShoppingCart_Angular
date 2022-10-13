@@ -17,6 +17,7 @@ import { RegisterUserService } from './SERVICES/AccountService/register-user.ser
 import { FormBuilder } from '@angular/forms';
 import { CategoryServiceService } from './SERVICES/AdminService/category-service.service';
 import { HttpInterceptorService } from './SERVICES/AccountService/http-interceptor.service';
+import { PageNotFoundComponent } from './SHARED/Component/page-not-found/page-not-found.component';
 // import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
@@ -28,7 +29,8 @@ import { HttpInterceptorService } from './SERVICES/AccountService/http-intercept
    HomePageComponent,
    CategoryComponent,
    ProductComponent,
-   WelcomeComponent
+   WelcomeComponent,
+   PageNotFoundComponent
    
    
  
