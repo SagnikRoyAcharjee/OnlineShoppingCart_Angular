@@ -1,0 +1,38 @@
+footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 1px;
+
+}
+
+content {
+  color: aliceblue;
+
+}
+.center img{
+  height:162px;
+ 
+  margin:20px 0px;
+}
+
+.card {
+  height: 70vh;
+  margin: 20px;
+  padding: 1px;
+  size: 1px;
+}
+
+.center {
+
+  position: absolute;
+
+  top: 30%;
+
+  left: 43%;
+  transform: translate(-50, -50%);
+  text-align: center;
+}
+.table{
+  color:aliceblue;
+}

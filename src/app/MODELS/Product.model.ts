@@ -5,5 +5,6 @@ export class Product{
     price!:number;
     productImage:string='';
     categoryId:number=0;
-    categoryName:string=''
+    categoryName:string='';
+    isSelected?:boolean;
 }

@@ -4,48 +4,84 @@ import { AppComponent } from './app.component';
 
 import { CategoryComponent } from './COMPONENTS/AdminSection/category/category.component';
 import { ProductComponent } from './COMPONENTS/AdminSection/product/product.component';
+import { CartComponent } from './COMPONENTS/CustomerSection/cart/cart.component';
+import { CheckoutComponent } from './COMPONENTS/CustomerSection/checkout/checkout.component';
 import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
 
 import { LoginComponent } from './COMPONENTS/CustomerSection/login/login.component';
+import { PaymentComponent } from './COMPONENTS/CustomerSection/payment/payment.component';
+import { PlaceOrderComponent } from './COMPONENTS/CustomerSection/place-order/place-order.component';
+import { ProductsByCategoryComponent } from './COMPONENTS/CustomerSection/products-by-category/products-by-category.component';
+import { ProductsDisplayComponent } from './COMPONENTS/CustomerSection/products-display/products-display.component';
 import { RegisterComponent } from './COMPONENTS/CustomerSection/register/register.component';
+import { ViewProductInfoComponent } from './COMPONENTS/CustomerSection/view-product-info/view-product-info.component';
 import { WelcomeComponent } from './COMPONENTS/CustomerSection/welcome/welcome.component';
 import { PageNotFoundComponent } from './SHARED/Component/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
   {
-    path:'',
-    component:WelcomeComponent
+    path: '',
+    component: WelcomeComponent
   },
   {
-    
-    path:'home-page',
+
+    path: 'home-page',
     component: HomePageComponent
   },
   {
-    path:'login',
+    path: 'login',
     component: LoginComponent
   },
-  
+
   {
-    path:'register',
+    path: 'register',
     component: RegisterComponent
   },
   {
-    path:'category',
-    component:CategoryComponent
+    path: 'category',
+    component: CategoryComponent
   },
   {
-     path:'product',
-     component:ProductComponent
+    path: 'product',
+    component: ProductComponent
   },
   {
-    path:'**',
-    component:PageNotFoundComponent
-  }
-  
-  
-  
+    path: 'product-display',
+    component: ProductsDisplayComponent
+  },
+  {
+    path: 'view-product-info/:id',
+    component: ViewProductInfoComponent
+  },
+  {
+    path: 'products-by-category/:categoryId',
+    component: ProductsByCategoryComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
+
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent
+  },
+  {
+    path: 'place-order',
+    component:PlaceOrderComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  },
+
+
+
 ];
 
 @NgModule({

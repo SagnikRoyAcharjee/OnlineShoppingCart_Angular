@@ -1,0 +1,74 @@
+<nav class="navbar navbar-dark bg-dark" style="height: 74px;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://crazyukti.in/wp-content/uploads/2021/09/IMG_20210909_175725.png" class="me-2" height="20"
+                alt="shopsy Logo" loading="lazy" />
+            <small>SHOPSY.com</small>
+        </a>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" [routerLink]="['/login']" id="pills-login-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
+                    aria-selected="true">Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
+                    aria-selected="false">Register</button>
+            </li>
+
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/product-display']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false">Products</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/home-page']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false">Categories</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/payment']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false">Back</button>
+            </li>
+            <li class="nav-item" role="presentation" style="align-items:left">
+                <button class="nav-link" [routerLink]="['/cart']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false" style="-color:crimson; size: 2px; "><i class="fa fas-cart-plus"></i>
+                    <div class="badge bg-danger">
+                        {{totalItem}}
+                    </div>
+                </button>
+            </li>
+            <!-- <li class="nav-item" role="presentation">
+          <button class="nav-link" [routerLink]="['/']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
+        </li> -->
+
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+        </div>
+
+    </div>
+
+
+
+
+</nav>
+
+
+<footer class="bg-dark text-center text-white">
+
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white">Online Shopping - SHOPSY.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>

@@ -15,7 +15,8 @@ export class CategoryComponent implements OnInit {
   categories: Category[] = [];
   category: Category= {
     id:0,
-    categoryName:''
+    categoryName:'',
+    categoryImage:''
   }
  
   constructor(public catservice:CategoryServiceService) { }
@@ -71,7 +72,8 @@ export class CategoryComponent implements OnInit {
         // console.log(res);
         this.category={
           id:0,
-          categoryName:''
+          categoryName:'',
+          categoryImage:''
         };
       }
     );

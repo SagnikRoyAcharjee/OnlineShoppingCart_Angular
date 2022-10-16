@@ -1,0 +1,14 @@
+footer{
+    position:absolute;
+    bottom: -200px;
+    width:100%;
+    padding:1px;
+
+  }
+  content{
+    color:aliceblue;
+    align-content: center;
+  }
+  .button{
+    size: 50px;
+  }

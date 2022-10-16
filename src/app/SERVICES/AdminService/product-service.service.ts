@@ -7,6 +7,7 @@ import { Product } from 'src/app/MODELS/Product.model';
   providedIn: 'root'
 })
 export class ProductServiceService {
+  httpClient: any;
 
   constructor(private http:HttpClient) { }
   productbaseUrl:string='https://localhost:7143/api/Product';
@@ -33,12 +34,20 @@ export class ProductServiceService {
 
   }
  
-  getCategoryById():Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.productbaseUrl}/${this.productData.id}`);
+  getProductById(id:any):Observable<Product[]>{
+    const  baseUrl="https://localhost:7143/api/Product/" +id;
+    return this.http.get<Product[]>(baseUrl);
   }
  
   getProductByName():Observable<Product[]>{
     return this.http.get<Product[]>(`${this.productbaseUrl}/${this.productData.name}`);
+  }
+
+  getProductsByCategoryId(categoryId: any):Observable<Product[]>{
+   
+   const  baseUrl="https://localhost:7143/api/Product?catId=" +categoryId;
+   console.log(categoryId);
+    return this.http.get<Product[]>(baseUrl);
   }
 }
  

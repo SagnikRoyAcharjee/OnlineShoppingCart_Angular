@@ -1,0 +1,168 @@
+<nav class="navbar navbar-dark bg-dark" style="height: 74px;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://crazyukti.in/wp-content/uploads/2021/09/IMG_20210909_175725.png" class="me-2" height="20"
+                alt="shopsy Logo" loading="lazy" />
+            <small>SHOPSY.com</small>
+        </a>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" [routerLink]="['/login']" id="pills-login-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
+                    aria-selected="true">Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
+                    aria-selected="false">Register</button>
+            </li>
+
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/product-display']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false">Products</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/home-page']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false">Categories</button>
+            </li>
+            <li class="nav-item" role="presentation" style="align-items:left">
+                <button class="nav-link" [routerLink]="['/cart']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false" style="-color:crimson; size: 2px; "><i class="fas fa-cart-plus">
+                    </i>
+                    <div class="badge bg-danger">
+                        {{totalItem}}
+                    </div>
+                </button>
+            </li>
+            <!-- <li class="nav-item" role="presentation">
+          <button class="nav-link" [routerLink]="['/']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
+        </li> -->
+
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+        </div>
+
+    </div>
+
+
+
+
+</nav>
+
+
+
+
+
+
+
+<ng-container *ngIf="products.length != 0">
+    <div class="container">
+        <div class="card-table">
+            <div class="card-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Serial no.</th>
+                            <th>Product Id</th>
+                            <th>Product Image</th>
+                            <th>Product Name</th>
+
+                            <th>Description</th>
+                            <th>Price</th>
+                            <!-- <th>Quantity</th> -->
+                            <th>Total</th>
+                            <!-- <th>Action</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products;let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{product.id}}</td>
+                            <td><img style="width:120px;" src="{{product.productImage}}" alt=""></td>
+                            <td>{{product.name}}</td>
+
+                            <td style="width:10%">{{product.productDescription}}</td>
+                            <td style="width:14%">Rs. {{product.price}}</td>
+                            <!-- <td>{{product.quantity}}</td> -->
+                            <td>{{product.price}} </td>
+
+                            <td>
+                                <button (click)="removeItem(product)" class="btn btn-danger"><i
+                                        class="fas fas-trash"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                            height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+
+                            <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button> </td>
+                            <td><button [routerLink]="['/product-display']" class="btn btn-success">Shop More</button>
+                            </td>
+                            <td><button class="btn btn-primary">Checkout</button> </td>
+                            <td><strong>Total Amount : Rs.{{grandTotal}} </strong></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</ng-container>
+
+
+
+
+<ng-container *ngIf="products.length==0">
+    <div class="container">
+        <div class="card">
+            <!-- <h5 class="card-title"><strong>MY CART</strong></h5> -->
+        </div>
+        <div class="center">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/006/007/small/no-item-in-the-shopping-cart-click-to-go-shopping-now-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg "
+                alt="">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item to it now</h6>
+            <button [routerLink]="['/product-display']" class="btn btn-primary">Shop Now</button>
+        </div>
+    </div>
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+<footer class="bg-dark text-center text-white">
+
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white">Online Shopping - SHOPSY.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
