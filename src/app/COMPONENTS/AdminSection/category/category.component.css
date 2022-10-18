@@ -11,7 +11,7 @@
     font-weight: bold;
     border: 2px solid #f1f1f1;
     position:top;
-    top: 1500%;
+    top: 1000%;
     left: 25%;
     transform: translate(75%, 20%);
     z-index: 2;
@@ -41,9 +41,10 @@ h1 {
     padding:4em;
 }
 .category-grid{
+    margin-top: -5em;
     width:500%;
     
-    padding:5em;
+    padding:4.5em;
 }
 form.form-group{
     margin-bottom:1em;
@@ -123,7 +124,7 @@ button{
 
 footer{
     position:absolute;
-    bottom: -300px;
+    bottom: -150px;
     width:100%;
     padding:1px;
 

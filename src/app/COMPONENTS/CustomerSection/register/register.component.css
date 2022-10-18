@@ -7,7 +7,7 @@
     position:absolute;
     top: 6%;
     left: 25%;
-    bottom: 11.5%;
+    bottom: -4.5%;
     transform: translate(10%, 5%);
     z-index: 2;
     width: 40%;
@@ -16,7 +16,7 @@
   }
   footer{
     position:absolute;
-    bottom:0;
+    bottom: -150px;
     width:100%;
     padding:1px;
 

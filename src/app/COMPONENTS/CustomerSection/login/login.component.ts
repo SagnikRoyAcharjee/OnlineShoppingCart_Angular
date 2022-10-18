@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
     username: new FormControl("", [Validators.required,
     Validators.minLength(3),
-    Validators.maxLength(15),
+    Validators.maxLength(25),
     ]),
     password: new FormControl("", [
       Validators.required,
@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
     ]),
     role: new FormControl("", [
       Validators.required
-    ])
-
+    ]),
+    
   });
   // isUserValid: boolean = false;
   loginSubmit() {
@@ -62,12 +62,12 @@ export class LoginComponent implements OnInit {
               if (res != null) {
                 this.responsedata = res;
                 this.responsedata.Status
-                localStorage.setItem('token', this.responsedata.token);
+                localStorage.setItem('tk', this.responsedata.token);
 
-                // localStorage.setItem('id', JSON.stringify(this.responsedata.id));
+                //localStorage.setItem('id', JSON.stringify(this.loginForm.id));
                 localStorage.setItem('role', JSON.stringify(this.loginForm.value.role));
-                localStorage.setItem('username', JSON.stringify(this.responsedata.username));
-
+                localStorage.setItem('username', JSON.stringify(this.loginForm.value.username));
+               
                 if (this.loginForm.value.role == 'Admin') {
                   this.router.navigate(['/category'])
                   alert("Admin Log in succesful  !!!!")
@@ -89,8 +89,8 @@ export class LoginComponent implements OnInit {
         )
     }
   }
-
- get UserName():FormControl{
+// 
+ get Username():FormControl{
   return this.loginForm.get("username") as FormControl;
  }
  get Password():FormControl{

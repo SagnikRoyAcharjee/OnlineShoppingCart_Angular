@@ -40,6 +40,7 @@ export class CartService {
     })
     return grandTotal;
   }
+  
 
   removeCartItem(product:any){
     this.cartItemList.map((a:any, index:any)=>{

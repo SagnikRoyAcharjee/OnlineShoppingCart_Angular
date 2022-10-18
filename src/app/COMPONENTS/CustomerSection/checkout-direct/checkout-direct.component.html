@@ -9,12 +9,12 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" [routerLink]="['/login']" id="pills-login-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
-                    aria-selected="true"><i class="fas fa-user-circle"></i></button>
+                    aria-selected="true">Login</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
-                    aria-selected="false"><i class="fas fa-users"></i></button>
+                    aria-selected="false">Register</button>
             </li>
 
 
@@ -30,16 +30,11 @@
             </li>
             <li class="nav-item" role="presentation" style="align-items:left">
                 <button class="nav-link" [routerLink]="['/cart']"id="pills-back-tab" data-bs-toggle="pill" data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
-                aria-selected="false" style="-color:crimson; size: 2px; " ><i class="fas fa-cart-plus"></i>
+                aria-selected="false" style="-color:crimson; size: 2px; "><i class="fas fa-cart-plus"></i>
             <div class="badge bg-danger">
               {{totalItem}}
             </div></button>
               </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
-                    aria-selected="false" style="color:crimson" (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</button>
-            </li>
             <!-- <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['/']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
         </li> -->
@@ -70,48 +65,34 @@
           <h5 class="mb-0"><strong>Shipping Details</strong></h5>
         </div>
         <div class="card-body">
-          <form #form="ngForm" [formGroup]="checkoutForm" > 
+          <form #form="ngForm" > 
           
-            
+            <!-- <div class="row mb-4"> -->
               <div class="col">
                 <div class="form-outline mb-3">
-                  <label class="fullname" for="fullname"><strong>Full Name</strong></label>
-                  <input type="text" id="fullname" class="form-control" formControlName="fullname" placeholder="Name" required/>
-                  <div class="form-text text-danger"  *ngIf="fullname.errors?.['required'] && fullname.touched ">
-                    Fullname is required.
-                 </div> 
+                  <label class="Name" for="form7Example1"><strong>Full Name</strong></label>
+                  <input type="text" id="form7Example1" class="form-control" placeholder="Name"/>
+                  
                 </div>
               
              
              <div class="form-outline mb-3">
-              <label class="form-label" for="phonenNo"><strong>Phone Number</strong></label>
-              <input type="number" id="phoneNo" class="form-control" formControlName="phoneNo" placeholder="Calling no." required
-              pattern="^((\\+91-?)|0)?[0-9]{10}$"/>
-               <div  class="form-text text-danger">   
-                <div *ngIf="phoneNo.errors?.['pattern']">Please, Enter 10 digit Mobile Number.</div>  
-                 </div> 
-              <div class="form-text text-danger"  *ngIf="phoneNo.errors?.['required'] && phoneNo.touched ">
-                phonenNo is required.
-             </div>
-             <div class="form-text text-danger"
-                            *ngIf="phoneNo.errors?.['minLength'] ||  phoneNo.errors?.['maxLength'] && (phoneNo.dirty || phoneNo.touched)">
-                            Phone no should be in the correct format.
-                          </div> 
+              <label class="form-label" for="form7Example6"><strong>Phone Number</strong></label>
+              <input type="number" id="form7Example6" class="form-control" placeholder="Calling no."/>
+              
             </div> 
   
             
             <div class="form-outline mb-3">
-              <label class="form-label" for="address"><strong>Address</strong></label>
-              <input type="text" id="address" class="form-control" formControlName="address" placeholder="Delivery address" required />
-               <div class="form-text text-danger"  *ngIf="address.errors?.['required'] && address.touched ">
-                Address is required.
-             </div> 
+              <label class="form-label" for="form7Example4"><strong>Address</strong></label>
+              <input type="text" id="form7Example4" class="form-control" placeholder="Delivery address" />
+               
             </div>
             </div>
 
             </form>
             <div> 
-                <!-- <button [routerLink]="['/payment']" class="edit" [disabled]="form.invalid" > Update</button> -->
+                <button class="edit"  > Update</button>
               </div>
         </div>
             
@@ -154,8 +135,8 @@
   
   
             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-              <div>
-                <strong>Total amount: Rs. {{amount}}  </strong>
+              <div *ngIf="productData">
+                <strong>Total amount: Rs. {{productData.price}}  </strong>
               </div>
               <span><strong></strong></span>
             </li>
@@ -166,7 +147,7 @@
          
   
            <div>
-          <button class="button-1" type="button"routerLink="/payment" [disabled]="form.invalid">Payment</button>
+          <button class="button-1" type="button"routerLink="/payment">Payment</button>
         </div>
         </div>
         </div>
@@ -195,3 +176,4 @@
     </div>
     <!-- Copyright -->
   </footer>
+

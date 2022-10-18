@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/MODELS/Category.model';
+import { Product } from 'src/app/MODELS/Product.model';
+import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 import { CategoryServiceService } from 'src/app/SERVICES/AdminService/category-service.service';
 import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
 
@@ -17,7 +20,16 @@ export class HomePageComponent implements OnInit {
   }
   categoryList:Category[]=[];
   public totalItem: number = 0;
-  constructor(public catservice:CategoryServiceService,private cartService:CartService) { }
+  productList:Product={
+    id: 0,
+    name: '',
+    productDescription: '',
+    price: 0,
+    productImage: '',
+    categoryId: 0,
+    categoryName: ''
+  };
+  constructor(public catservice:CategoryServiceService,private cartService:CartService,public router:Router,public loginService:LoginService) { }
 
   ngOnInit(): void {
     this.getAllCategories();
@@ -32,6 +44,7 @@ export class HomePageComponent implements OnInit {
     .subscribe(
       res=>{
        this.categoryList=res;
+      
       console.log(res);
      
 
@@ -49,5 +62,21 @@ export class HomePageComponent implements OnInit {
  
   searchCategory='';
 
+  goTo(){
+    if(this.category.id==this.productList.categoryId)
+    {
+      this.router.navigate(['/products-by-category'])
+       this.productList;
+    
+    }
+  }
+
+  logout(){
+    this.loginService.removeToken();
+    console.log("Log out initiated");
+     this.cartService.removeAllCart();
+    alert('Are you sure you want to log out ?');
+    this.router.navigate(['']);
+  }
  
 }

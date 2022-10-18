@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { Category } from 'src/app/MODELS/Category.model';
 import { Product } from 'src/app/MODELS/Product.model';
+import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 import { CategoryServiceService } from 'src/app/SERVICES/AdminService/category-service.service';
 
 @Component({
@@ -19,7 +21,7 @@ export class CategoryComponent implements OnInit {
     categoryImage:''
   }
  
-  constructor(public catservice:CategoryServiceService) { }
+  constructor(public catservice:CategoryServiceService, public loginService:LoginService, public router:Router) { }
   
   
 
@@ -115,5 +117,12 @@ this.catservice.deleteCategory(id)
 
     );
 
+  }
+  logout(){
+    this.loginService.removeToken();
+    console.log("Log out initiated");
+    // this.cartService.removeAllCart();
+    alert('Are ypou sure you want to log out ?');
+    this.router.navigate(['']);
   }
 }

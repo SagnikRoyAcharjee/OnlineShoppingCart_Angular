@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 import { CategoryServiceService } from 'src/app/SERVICES/AdminService/category-service.service';
 import { Category } from 'src/app/MODELS/Category.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
+import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -31,7 +34,8 @@ export class ProductComponent implements OnInit {
       this.selectedValue=c.target.value;
   }
 
-  constructor(public prodService: ProductServiceService, public catservice:CategoryServiceService) { }
+  constructor(public prodService: ProductServiceService, public catservice:CategoryServiceService,public router:Router, public cartService:CartService,
+    public loginService:LoginService) { }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -118,8 +122,18 @@ this.prodService.deleteProduct(id)
       res =>{
        this.getAllProducts();
       }
-
+ 
     );
 
   }
+
+  logout(){
+    this.loginService.removeToken();
+    console.log("Log out initiated");
+    // this.cartService.removeAllCart();
+    alert('Are ypou sure you want to log out ?');
+    this.router.navigate(['']);
+  }
+
+  
 }

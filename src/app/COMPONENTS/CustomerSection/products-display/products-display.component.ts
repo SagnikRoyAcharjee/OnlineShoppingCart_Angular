@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Category } from 'src/app/MODELS/Category.model';
 import { Product } from 'src/app/MODELS/Product.model';
+import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 import { ProductServiceService } from 'src/app/SERVICES/AdminService/product-service.service';
 import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
+import { CheckoutService } from 'src/app/SERVICES/CustomerService/checkout.service';
 
 @Component({
   selector: 'app-products-display',
@@ -17,7 +19,8 @@ export class ProductsDisplayComponent implements OnInit {
   selectedProduct: Product[] = [];
 
   public totalItem: number = 0;
-  constructor(public prodService: ProductServiceService, private activatedRoute: ActivatedRoute, private cartService: CartService) { }
+  constructor(public prodService: ProductServiceService, private activatedRoute: ActivatedRoute, private cartService: CartService,
+    public router:Router,public checkoutService:CheckoutService,public loginService:LoginService) { }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -37,6 +40,7 @@ export class ProductsDisplayComponent implements OnInit {
       .subscribe(
         res => {
           this.productList = res;
+          
           console.log(res);
 
 
@@ -50,6 +54,20 @@ export class ProductsDisplayComponent implements OnInit {
   addToCart(product: any) {
     this.cartService.addToCart(product);
   }
+
+  getPrice(){
+   this. checkoutService.getPrice();
+    this.router.navigate(['../checkout']);
+
+
+ }
+ logout(){
+  this.loginService.removeToken();
+  console.log("Log out initiated");
+  this.cartService.removeAllCart();
+  alert('Are ypou sure you want to log out ?');
+  this.router.navigate(['']);
+}
 }
 
 

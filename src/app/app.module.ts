@@ -32,6 +32,7 @@ import { ProductsByCategoryComponent } from './COMPONENTS/CustomerSection/produc
 import { CheckoutComponent } from './COMPONENTS/CustomerSection/checkout/checkout.component';
 import { PaymentComponent } from './COMPONENTS/CustomerSection/payment/payment.component';
 import { PlaceOrderComponent } from './COMPONENTS/CustomerSection/place-order/place-order.component';
+import { CheckoutDirectComponent } from './COMPONENTS/CustomerSection/checkout-direct/checkout-direct.component';
 
 // import { ToastrModule, ToastrService } from 'ngx-toastr';
 
@@ -54,7 +55,8 @@ import { PlaceOrderComponent } from './COMPONENTS/CustomerSection/place-order/pl
     ProductsByCategoryComponent,
     CheckoutComponent,
     PaymentComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    CheckoutDirectComponent
 
 
 

@@ -8,23 +8,33 @@
       </a>
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" [routerLink]="['login']" id="pills-login-tab" data-bs-toggle="pill"
+          <button class="nav-link" [routerLink]="['']" id="pills-back-tab" data-bs-toggle="pill"
+              data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+              aria-selected="false"><i class="fas fa-arrow-circle-left"></i></button>
+      </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" [routerLink]="['/login']" id="pills-login-tab" data-bs-toggle="pill"
             data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" 
-            aria-selected="true">Login</button>
+            aria-selected="true"><i class="fas fa-user-circle"></i></button>
         </li>
         <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill"
             data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
-            aria-selected="false">Register</button>
+            aria-selected="false"><i class="fas fa-users"></i></button>
         </li>
         <!-- <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['/home-page']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">View Home Page</button>
         </li> -->
-        <li class="nav-item" role="presentation">
+        <!-- <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['/category']" id="pills-home-tab" data-bs-toggle="pill"
             data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
             aria-selected="false">Admin</button>
-        </li>
+        </li> -->
+        <!-- <li class="nav-item" role="presentation">
+          <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
+              data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
+              aria-selected="false" style="color:crimson"><i class="fas fa-sign-out-alt"></i>Logout</button>
+      </li> -->
 
       </ul>
       <div class="tab-content" id="pills-tabContent">
@@ -125,7 +135,7 @@
                             formControlName="role"  /> -->
             <div class="form-outline mb-6">
               <label class="form-label" for="username"><strong>Username</strong></label>
-              <input type="text" name="username" id="username" placeholder="username"
+              <input type="username" name="username"  id="username" placeholder="username"
                 class="form-control form-control-lg" formControlName="username" required />
               <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)" class="form-text form-danger">
 
@@ -141,8 +151,8 @@
                             *ngIf="username.errors?.['minLength'] ||  username.errors?.['maxLength'] && (username.dirty || username.touched)">
                             Username should be atleast 3 and at the max 15 characters long.
                           </div> -->
-              <div class="form-text text-danger"  *ngIf="UserName.errors?.['required'] && UserName.touched ">
-                Username is required.
+              <div class="form-text text-danger"  *ngIf="Username.errors?.['required'] && Username.touched ">
+                 Username is required.
               </div>
             
             </div>
@@ -176,9 +186,9 @@
               </div>
 
 
-              <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2 ">
+              <!-- <div class="d-flex justify-content-center mx-2 mb-2 mb-lg-2 ">
                 <button type="submit" class="btn btn-primary btn-sm btn-block" [routerLink]="['']">Go Back</button>
-              </div>
+              </div> -->
             </div>
 
           </form>

@@ -49,5 +49,8 @@ export class ProductServiceService {
    console.log(categoryId);
     return this.http.get<Product[]>(baseUrl);
   }
+  productDetails(){
+    return this.http.get(this.productbaseUrl);
+  }
 }
  

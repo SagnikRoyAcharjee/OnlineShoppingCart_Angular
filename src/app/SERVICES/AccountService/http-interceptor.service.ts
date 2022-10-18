@@ -9,16 +9,20 @@ import { LoginService } from './login.service';
 export class HttpInterceptorService implements HttpInterceptor {
   service: any;
 
-  constructor(service: LoginService,private inject:Injector) { }
+  
+  constructor(service: LoginService, private inject: Injector) { }
+
+  
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // throw new Error('Method not implemented.');
-let accountService=this.inject.get(LoginService);
-let jwttoken=req.clone({
- setHeaders:{
-  Authorization: 'bearer' + accountService.GetToken()
- }
-});
-return next.handle(jwttoken)
+    // let token=localStorage.getItem('token');
+    let accountService = this.inject.get(LoginService);
+    let jwttoken = req.clone({
+      setHeaders: {
+        Authorization: 'bearer' + accountService.GetToken()
+      }
+    });
+    return next.handle(jwttoken)
 
 
 

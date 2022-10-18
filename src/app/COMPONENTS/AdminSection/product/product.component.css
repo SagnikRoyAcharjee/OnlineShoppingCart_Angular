@@ -44,6 +44,7 @@ h1 {
     width:150%;
     
     padding:3em;
+    margin-top:-2em;
 }
 form.form-group{
     margin-bottom:1em;
@@ -127,7 +128,7 @@ p{
 }
 footer{
     position:absolute;
-    bottom: -300px;
+    bottom: -180px;
     width:100%;
     padding:1px;
 

@@ -9,12 +9,12 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" [routerLink]="['/login']" id="pills-login-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
-                    aria-selected="true">Login</button>
+                    aria-selected="true"><i class="fas fa-user-circle"></i></button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
-                    aria-selected="false">Register</button>
+                    aria-selected="false"><i class="fas fa-users"></i></button>
             </li>
 
 
@@ -37,6 +37,11 @@
                         {{totalItem}}
                     </div>
                 </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
+                    aria-selected="false" style="color:crimson" (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</button>
             </li>
             <!-- <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['/']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
@@ -111,7 +116,7 @@
                             <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button> </td>
                             <td><button [routerLink]="['/product-display']" class="btn btn-success">Shop More</button>
                             </td>
-                            <td><button class="btn btn-primary">Checkout</button> </td>
+                            <td><button (click)=check()   class="btn btn-primary">Checkout</button> </td>
                             <td><strong>Total Amount : Rs.{{grandTotal}} </strong></td>
                         </tr>
 

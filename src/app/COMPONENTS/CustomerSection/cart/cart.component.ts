@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 import { ProductServiceService } from 'src/app/SERVICES/AdminService/product-service.service';
 import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
 
@@ -13,7 +14,7 @@ export class CartComponent implements OnInit {
 public products:any=[];
 public grandTotal!:number;
 public totalItem: number = 0;
-  constructor(private cartService:CartService) { }
+  constructor(private cartService:CartService ,public router:Router,public loginService:LoginService) { }
 
   ngOnInit(): void {
     this.cartService.getProducts()
@@ -33,6 +34,25 @@ this.cartService.removeCartItem(product);
     this.cartService.removeAllCart();
   }
 
-  
+  checkout(){
+    this.cartService.getTotalPrice();
+    this.router.navigate(['/checkout']);
+
+ }
+ logout(){
+  this.loginService.removeToken();
+  console.log("Log out initiated");
+   this.cartService.removeAllCart();
+  alert('Are ypou sure you want to log out ?');
+  this.router.navigate(['']);
+}
+  check(){
+    if(this.loginService.isLoggedin()){
+      this.router.navigate(['/checkout'])
+    }
+    else{
+      this.router.navigate(['/login'])
+    }
+  }
 
 }

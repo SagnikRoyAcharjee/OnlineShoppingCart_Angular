@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/MODELS/Category.model';
 import { Product } from 'src/app/MODELS/Product.model';
+import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
+import { RegisterUserService } from 'src/app/SERVICES/AccountService/register-user.service';
 import { ProductServiceService } from 'src/app/SERVICES/AdminService/product-service.service';
 import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
 
@@ -17,7 +19,8 @@ export class ViewProductInfoComponent implements OnInit {
   product:any;
 
   public totalItem: number = 0;
-  constructor(private activatedRoute:ActivatedRoute, private prodService:ProductServiceService,private cartService:CartService) { }
+  constructor(private activatedRoute:ActivatedRoute, private prodService:ProductServiceService,private cartService:CartService,
+    public loginService:LoginService, public router:Router,public registerService:RegisterUserService) { }
   id:any;
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params=>{
@@ -40,6 +43,26 @@ export class ViewProductInfoComponent implements OnInit {
 
   addToCart(product:any){
     this.cartService.addToCart(product);
+  }
+  logout(){
+    this.loginService.removeToken();
+    console.log("Log out initiated");
+    this.cartService.removeAllCart();
+    alert('Are ypou sure you want to log out ?');
+    this.router.navigate(['']);
+  }
+
+  deleteAccount(id:number)
+  {
+    
+    if(this.loginService.isLoggedin()){
+      if(this.registerService.getUserByUsername ==this.id) 
+      {
+        console.log(id)
+        alert("Are you sure you want to delete your account?")
+        this.registerService.deleteUserAccount;
+      }
+    }
   }
 
 }

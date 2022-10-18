@@ -1,6 +1,6 @@
 footer{
     position:absolute;
-    bottom: -70px;
+    bottom: -55px;
     width: 100%;
     padding:1px;
 
@@ -23,7 +23,7 @@ footer{
 }
 .card{
     margin-top: -3%;
-    background-color: rgb(38, 38, 40);
+    background-color: rgb(42, 41, 41);
     
     
 }

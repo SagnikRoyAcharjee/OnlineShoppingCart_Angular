@@ -7,25 +7,26 @@
         </a>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/product-display']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false"><i class="fas fa-arrow-circle-left"></i></button>
+            </li>
+            <li class="nav-item" role="presentation">
                 <button class="nav-link active" [routerLink]="['/login']" id="pills-login-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
-                    aria-selected="true">Login</button>
+                    aria-selected="true"><i class="fas fa-user-circle"></i></button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
-                    aria-selected="false">Register</button>
+                    aria-selected="false"><i class="fas fa-users"></i></button>
             </li>
 
 
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" [routerLink]="['/product-display']" id="pills-back-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
-                    aria-selected="false">Back</button>
-            </li>
+            
             <li class="nav-item" role="presentation" style="align-items:left">
                 <button class="nav-link" [routerLink]="['/cart']"id="pills-back-tab" data-bs-toggle="pill" data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
-                aria-selected="false" style="-color:crimson; size: 2px; "><i class="fas fa-cart-plus"></i>
+                aria-selected="false" style="-color:crimson; size: 2px; " ><i class="fas fa-cart-plus"></i>
             <div class="badge bg-danger">
                 {{totalItem}}
             </div></button>
@@ -34,6 +35,17 @@
           <button class="nav-link" [routerLink]="['/']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
         </li> -->
 
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
+                aria-selected="false" style="color:crimson" (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</button>
+        </li>
+        <!-- <li class="nav-item" role="presentation">
+            <button class="nav-link" (click)="deleteAccount(id)" id="pills-register-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
+                aria-selected="false">Delete</button>
+        </li> -->
         </ul>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...
@@ -65,7 +77,7 @@
  </div>
  <div class="group">
     <br>
-    <button type="button "  class="btn btn-danger btn-lg">Checkout </button>
+    <!-- <button type="button "  class="btn btn-danger btn-lg">Checkout </button> -->
     <button type="button " (click)=addToCart(product) class="btn btn-success btn-lg" >Add to cart </button>
  </div>
 

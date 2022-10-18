@@ -7,8 +7,8 @@ import { Login } from 'src/app/MODELS/Login.model';
   providedIn: 'root'
 })
 export class LoginService {
-  username:any;
-  uassword:any;
+  email:any;
+  password:any;
   role:any;
   login:Login=new Login();
   constructor(private http:HttpClient) { }
@@ -29,7 +29,16 @@ export class LoginService {
         //responseType:"text",
       //}
     }
+
+    isLoggedin():boolean{
+      return localStorage.getItem("tk")?true:false ;
+    
+    }
    GetToken(){
-    return localStorage.getItem('token')||''
+    return localStorage.getItem('tk')||''
+  }
+  removeToken(){
+    return localStorage.removeItem('tk');
+
   }
 }
