@@ -25,10 +25,15 @@
                             <button class="nav-link" [routerLink]="['']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false"><i class="fas fa-arrow-circle-left"></i></button>
                           </li>
                           <li class="nav-item" role="presentation">
-                            <button class="nav-link active" [routerLink]="['/login']"      id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">Login</button>
+                            <button class="nav-link active" [routerLink]="['/login']"      id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true"><i class="fas fa-user-circle"></i></button>
                           </li>
                           <li class="nav-item" role="presentation">
                             <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill" data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" aria-selected="false"><i class="fas fa-users"></i></button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" [routerLink]="['/contact-us']" id="pills-register-tab" data-bs-toggle="pill"
+                              data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
+                              aria-selected="false"><i class="fas fa-phone-alt"></i></button>
                           </li>
                           <!-- <li class="nav-item" role="presentation">
                             <button class="nav-link" [routerLink]="['/home-page']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">View Home Page</button>
@@ -53,7 +58,9 @@
                         </div> -->
                       
                     </nav>
-                  <div class="bg-text">
+                 
+                 
+                    <div class="bg-text">
                   <p class="text-center h6 fw-bold mb-5 mx-1 mx-md-4 mt-4">Enter your credentials to create an account</p>
                   <form class="mx-1 mx-md-1" #form="ngForm" (submit)="onSubmit(form)" >
       <input type="hidden" name="id" [value]="service.formData.id" >

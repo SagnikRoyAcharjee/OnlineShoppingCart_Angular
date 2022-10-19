@@ -125,8 +125,8 @@
                     <div class="card-header">
                         <div class="heading mb-3"> PAYMENT METHOD </div>
                         <div class="sub-heading row text-center m-0">
-                            <div class="col-6 col-md-6 sub-heading1">By Credit Card</div>
-                            <button type="button" (click)="onClick()"    class="col-6 col-md-6 sub-heading2">Cash on Delivery</button>
+                            <div class="col-6 col-md-6 sub-heading1">By Debit Card</div>
+                            <button type="button" (click)=" placeOrderByCashOnDelivery()"    class="col-6 col-md-6 sub-heading2">Cash on Delivery</button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -141,7 +141,7 @@
                         <div class="heading2"> PAYMENT DETAILS </div>
                     </div>
                     <div class="card-body col-10 offset-1">
-                        <form>
+                        <form #form="ngForm" [formGroup]="paymentForm">
                             <div class="form-group"> 
                                 <label><small><strong class="text-muted" for="ownerName">CARD HOLDER</strong></small></label>
                                  <input class="form-control"  placeholder="Devin Caldwell" id="ownerName" formControlName="ownerName" required> 
@@ -153,7 +153,7 @@
                             <div class="form-group"> 
                                 <label><small><strong class="text-muted">CARD NUMBER</strong></small></label>
                                 <div class="d-flex card-number">
-                                     <input class="form-control" formControlName="cardNumber" placeholder="1234-4567-4543-1685"> <i class="fas fa-credit-card text-muted fa-2x"></i> </div>
+                                     <input class="form-control" placeholder="1234-4567-4543-1685" formControlName="cardNumber" required> <i class="fas fa-credit-card text-muted fa-2x"></i> </div>
                                 <div class="form-text text-danger"
                                 *ngIf="cardNumber.errors?.['minLength'] ||  cardNumber.errors?.['maxLength'] && (cardNumber.dirty || cardNumber.touched)">
                                Card number is required and should contain 16 digits.
@@ -165,7 +165,8 @@
                                     <p><small class="text-muted">EXPERATION DATE</small></p>
                                     
                                 </div>
-                                <div class="form-group row"> <select class="form-control col-5">
+                                <div class="form-group row"> 
+                                    <select class="form-control col-5" id="expiryDate" >
                                         <option>January</option>
                                         <option>February</option>
                                         <option>march</option>
@@ -178,6 +179,7 @@
                                         <option>October</option>
                                         <option>November</option>
                                         <option>December</option>
+                                        
                                     </select> 
                                     <select class="form-control col-4">
                                         <option>2020</option>
@@ -189,20 +191,29 @@
                                    
                                         
                                     </select>
+                                    
+
                                     <br>
-                                    <div class="txt d-flex">
+                                    <div class="txt d-flex" >
                                             
                                         <p><small class="text-muted">CVV</small></p>
                                     </div>
-                                     <input class="col-3 col-md-2 offset-md-0 text-left" type="text" placeholder="234"> </div>
-                            </div>
+                                     <input class="col-3 col-md-2 offset-md-0 text-left" type="text" placeholder="234" formControlName="cvv" required> </div>
+                                     <div class="form-text text-danger"
+                                     *ngIf="cvv.errors?.['minLength'] ||  cvv.errors?.['maxLength'] && (cvv.dirty || cvv.touched)">
+                                    Cvv is invalid .Cvv should contain 3 digits only.
+                                   </div>
+                                   <div class="form-text text-danger"  *ngIf="cvv.errors?.['required'] && cvv.touched ">
+                                    CVV is required.
+                                 </div> 
+                                    </div>
                         </form>
                     </div>
                     <div class="card-footer col-10 offset-1 border-0 footer2">
                         <div class="d-flex total mb-5">
                             <p><strong>Payment of</strong></p>
-                            <p><strong>Rs. {{amount}}</strong></p>
-                        </div> <button (click)="onClick()" class="btn col-12"> PAY </button>
+                            <p style="color:black">Rs. {{amount}}</p>
+                        </div> <button  (click)="placeOrderByCard()" class="btn col-12"> PAY </button>
                     </div>
                 </div>
             </div>

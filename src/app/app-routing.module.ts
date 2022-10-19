@@ -7,9 +7,11 @@ import { ProductComponent } from './COMPONENTS/AdminSection/product/product.comp
 import { CartComponent } from './COMPONENTS/CustomerSection/cart/cart.component';
 import { CheckoutDirectComponent } from './COMPONENTS/CustomerSection/checkout-direct/checkout-direct.component';
 import { CheckoutComponent } from './COMPONENTS/CustomerSection/checkout/checkout.component';
+import { ContactUsComponent } from './COMPONENTS/CustomerSection/contact-us/contact-us.component';
 import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
 
 import { LoginComponent } from './COMPONENTS/CustomerSection/login/login.component';
+import { OrderDetailsComponent } from './COMPONENTS/CustomerSection/order-details/order-details.component';
 import { PaymentComponent } from './COMPONENTS/CustomerSection/payment/payment.component';
 import { PlaceOrderComponent } from './COMPONENTS/CustomerSection/place-order/place-order.component';
 import { ProductsByCategoryComponent } from './COMPONENTS/CustomerSection/products-by-category/products-by-category.component';
@@ -41,14 +43,18 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'contact-us',
+    component: ContactUsComponent
+  },
+  {
     path: 'category',
     component: CategoryComponent,
-    canActivate:[AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'product',
     component: ProductComponent,
-    canActivate:[AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'product-display',
@@ -56,7 +62,7 @@ const routes: Routes = [
   },
   {
     path: 'view-product-info/:id',
-    component: ViewProductInfoComponent 
+    component: ViewProductInfoComponent
   },
   {
     path: 'products-by-category/:categoryId',
@@ -72,8 +78,8 @@ const routes: Routes = [
     component: CheckoutComponent
   },
   {
-  path:'checkout-direct/:id',
-  component:CheckoutDirectComponent
+    path: 'checkout-direct/:id',
+    component: CheckoutDirectComponent
   },
   {
     path: 'payment',
@@ -81,7 +87,11 @@ const routes: Routes = [
   },
   {
     path: 'place-order',
-    component:PlaceOrderComponent
+    component: PlaceOrderComponent
+  },
+  {
+    path: 'order-details',
+    component: OrderDetailsComponent
   },
   {
     path: '**',

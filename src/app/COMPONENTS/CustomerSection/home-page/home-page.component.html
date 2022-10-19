@@ -9,13 +9,13 @@
 
       <li class="nav-item" role="presentation">
         <button class="nav-link" [routerLink]="['']" id="pills-back-tab" data-bs-toggle="pill"
-          data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
-          aria-selected="false" ><i class="fas fa-arrow-circle-left"></i></button>
+          data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back" aria-selected="false"><i
+            class="fas fa-arrow-circle-left"></i></button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link active" [routerLink]="['/login']" id="pills-login-tab" data-bs-toggle="pill"
-          data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login"
-          aria-selected="true"><i class="fas fa-user-circle"></i></button>
+          data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true"><i
+            class="fas fa-user-circle"></i></button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" [routerLink]="['/register']" id="pills-register-tab" data-bs-toggle="pill"
@@ -24,32 +24,38 @@
       </li>
 
 
-      
+
       <li class="nav-item" role="presentation">
-        <button class="nav-link" [routerLink]="['/product-display']" id="pills-product-display-tab" data-bs-toggle="pill" data-bs-target="#pills-product-display" type="button" role="tab" aria-controls="pills-product-display" aria-selected="false">View Products</button>
+        <button class="nav-link" [routerLink]="['/product-display']" id="pills-product-display-tab"
+          data-bs-toggle="pill" data-bs-target="#pills-product-display" type="button" role="tab"
+          aria-controls="pills-product-display" aria-selected="false">View Products</button>
       </li>
 
       <li class="nav-item" role="presentation" style="align-items:left">
-        <button class="nav-link" [routerLink]="['/cart']" id="pills-back-tab" data-bs-toggle="pill" data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
-        aria-selected="false" style="-color:crimson; size: 2px; "><i class="fas fa-cart-plus"></i>
-      <div class="badge bg-danger">
-        {{totalItem}}
-      </div></button>
+        <button class="nav-link" [routerLink]="['/cart']" id="pills-back-tab" data-bs-toggle="pill"
+          data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back" aria-selected="false"
+          style="-color:crimson; size: 2px; "><i class="fas fa-cart-plus"></i>
+          <div class="badge bg-danger">
+            {{totalItem}}
+          </div>
+        </button>
       </li>
       <li>
-<p></p>
+        <p></p>
       </li>
-      <li><p></p></li>
+      <li>
+        <p></p>
+      </li>
 
       <li class="nav-item" role="presentation">
         <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
-            data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
-            aria-selected="false" style="color:crimson" (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</button>
-    </li>
-       
-      
-      
-      
+          data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" aria-selected="false"
+          style="color:crimson" (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</button>
+      </li>
+
+
+
+
 
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -110,12 +116,12 @@
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
     <div fxFlex="25%" *ngFor="let category of categoryList | search: searchCategory">
       <mat-card class="mat-elevation-4">
-        
+
         <img mat-card-image src="{{category.categoryImage}}">
-        
+
         <mat-card-content>
           <a routerLink="/products-by-category/{{category.id}}" class="list-group-item">
-           <strong> {{category.categoryName}}</strong>
+            <strong> {{category.categoryName}}</strong>
           </a>
           <br>
           <p>Explore now !</p>

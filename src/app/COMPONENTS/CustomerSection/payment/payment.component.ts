@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Order } from 'src/app/MODELS/order.model';
 import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
+import { OrderService } from 'src/app/SERVICES/CustomerService/order.service';
 import { LoginComponent } from '../login/login.component';
 
 @Component({
@@ -12,62 +14,129 @@ import { LoginComponent } from '../login/login.component';
 })
 export class PaymentComponent implements OnInit {
   public totalItem: number = 0;
-  public amount:any;
-  constructor(private cartService:CartService,public router:Router, public loginService:LoginService) { }
+  public amount: any;
+  listOrder = this.cartService.getProducts();
+  isSelected: boolean = true;
+  paymentMode: string = '';
+  constructor(private cartService: CartService, public router: Router, public loginService: LoginService, public orderService: OrderService) { }
 
   ngOnInit(): void {
     this.cartService.getProducts()
       .subscribe(res => {
         this.totalItem = res.length;
       })
-      this.amount=  this.cartService.getTotalPrice();
 
-    }
+    this.amount = this.cartService.getTotalPrice();
 
-    paymentForm = new FormGroup({
-      ownerName: new FormControl("", [Validators.required,
-      
-      ]),
-      cardNumber: new FormControl("", [
-        Validators.required,
-        Validators.minLength(16),
-        Validators.maxLength(16),
-       
-      ]),
-      expiryDate: new FormControl("", [
-        Validators.required
-      ]),
-      cvv:new FormControl("", [
-        Validators.minLength(3),
-        Validators.maxLength(3),
-        Validators.required
-      ]),
-      
-    });
-    
-    onClick(){
-      alert("Are you sure you want to place your order?")
+  }
+
+  paymentForm = new FormGroup({
+    ownerName: new FormControl("", [Validators.required,
+
+    ]),
+    cardNumber: new FormControl("", [
+      Validators.required,
+      Validators.minLength(16),
+      Validators.maxLength(16),
+
+    ]),
+    expiryDate: new FormControl("", [
+      Validators.required
+    ]),
+    cvv: new FormControl("", [
+      Validators.minLength(3),
+      Validators.maxLength(3),
+      Validators.required
+    ]),
+
+  });
+
+  // onPayOnDelivery() {
+  //   this.isSelected = true;
+  //   alert("Are you sure you want to place your order?")
+  //   this.router.navigate(['/place-order'])
+
+  // }
+  // onCard() {
+  //   this.isSelected = false;
+  //   alert("Are you sure you want to place your order?")
+  //   this.router.navigate(['/place-order'])
+
+  // }
+
+  get ownerName(): FormControl {
+    return this.paymentForm.get("ownerName") as FormControl;
+  }
+  get cardNumber(): FormControl {
+    return this.paymentForm.get("cardNumber") as FormControl;
+  }
+  get expiryDate(): FormControl {
+    return this.paymentForm.get("expiryDate") as FormControl;
+  }
+  get cvv(): FormControl {
+    return this.paymentForm.get("cvv") as FormControl;
+  }
+
+
+  // Check() {
+  //   if (this.isSelected) {
+  //     this.paymentMode = "Cash on Delivery";
+
+  //   }
+  //   else {
+  //     this.paymentMode = "By Debit Card";
+  //   }
+  // }
+
+  placeOrderByCashOnDelivery() {
+    let obj: Order = {} as Order;
+    this.listOrder.forEach(data => {
+      obj = {
+        billAmount: this.cartService.getTotalPrice(), dateOfOrder: new Date(),
+        modeOfPayment: "Cash On Delivery", usersId: 5
+      }
+      return obj;
+    })
+    this.orderService.insertOrder(obj).subscribe(res => {
+      console.log(res);
+      alert("Are You sure you want to place your order?");
       this.router.navigate(['/place-order'])
-    }
-    get ownerName():FormControl{
-      return this.paymentForm.get("ownerName") as FormControl;
-     }
-     get cardNumber():FormControl{
-      return this.paymentForm.get("cardNumber") as FormControl;
-     }
-     get expiryDate():FormControl{
-      return this.paymentForm.get("expiryDate") as FormControl;
-     }
-     get cvv():FormControl{
-      return this.paymentForm.get("cvv") as FormControl;
-     }
+    })
 
-     logout(){
-      this.loginService.removeToken();
-      console.log("Log out initiated");
-      this.cartService.removeAllCart();
-      alert('Are ypou sure you want to log out ?');
-      this.router.navigate(['']);
-    }
+    
+
+  }
+
+  placeOrderByCard() {
+    let obj: Order = {} as Order;
+    this.listOrder.forEach(data => {
+      obj = {
+        billAmount: this.cartService.getTotalPrice(), dateOfOrder: new Date(),
+        modeOfPayment: "By Debit Card", usersId: 5
+      }
+      return obj;
+    })
+    this.orderService.insertOrder(obj).subscribe(res => {
+      console.log(res);
+      alert("Are you sure you want to place your order?");
+      this.router.navigate(['/place-order'])
+    })
+
+    
+
+  }
+
+
+
+
+
+
+  logout() {
+    this.loginService.removeToken();
+    console.log("Log out initiated");
+    this.cartService.removeAllCart();
+    alert('Are ypou sure you want to log out ?');
+    this.router.navigate(['']);
+  }
 
 }
