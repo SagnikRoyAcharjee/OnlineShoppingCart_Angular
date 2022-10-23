@@ -22,7 +22,8 @@ export class ProductsByCategoryComponent implements OnInit {
   public filterCategory: any;
   productList: any;
   categoryId: any;
-
+  product:any;
+  id:any;
   ngOnInit(): void {
     // this.activatedRoute.queryParams.subscribe(params => {
     //   this.searchCategory = params['categoryId'];
@@ -35,10 +36,28 @@ export class ProductsByCategoryComponent implements OnInit {
 
     // });
     // this.getProductsByCategoryId(this.categoryId);
+   
     this.cartService.getProducts()
       .subscribe(res => {
         this.totalItem = res.length;
       })
+
+      this.activatedRoute.paramMap.subscribe(params=>{
+        this.id=params.get('id');
+  
+        });
+        this.getProductById( this.id);
+        this.cartService.getProducts()
+        .subscribe(res => {
+          this.totalItem = res.length;
+        })
+  
+  }
+
+  getProductById(id:any){
+    this.prodService.getProductById(id).subscribe((res)=>{
+      this.product=res;
+    })
   }
 
   getProductsByCategoryId(id: any) {

@@ -38,6 +38,7 @@ export class PaymentComponent implements OnInit {
       Validators.required,
       Validators.minLength(16),
       Validators.maxLength(16),
+      Validators.pattern("^4[0-9]{0,}$")
 
     ]),
     expiryDate: new FormControl("", [

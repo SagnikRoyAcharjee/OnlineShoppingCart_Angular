@@ -22,6 +22,7 @@ export class ViewProductInfoComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute, private prodService:ProductServiceService,private cartService:CartService,
     public loginService:LoginService, public router:Router,public registerService:RegisterUserService) { }
   id:any;
+  
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params=>{
       this.id=params.get('id');

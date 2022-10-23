@@ -29,6 +29,12 @@ export class RegisterComponent implements OnInit {
   }
   userList:any=[];
   registerform=new FormGroup({
+   
+      name:new FormControl("",[
+        Validators.pattern("[a-zA-Z ]*"),
+      
+     
+     ]),
     
        username:new FormControl("",[Validators.required,
        Validators.minLength(3),
@@ -88,6 +94,23 @@ export class RegisterComponent implements OnInit {
     }
     );
   }
+
+  get Username():FormControl{
+    return this.registerform.get("username") as FormControl;
+   }
+   get Address():FormControl{
+    return this.registerform.get("address") as FormControl;
+   }
+   get Email():FormControl{
+    return this.registerform.get("email") as FormControl;
+   }
+   get PhoneNo():FormControl{
+    return this.registerform.get("phoneNo") as FormControl;
+   }
+   get Password():FormControl{
+    return this.registerform.get("password") as FormControl;
+   }
+   
   
   
   // validate(u :AbstractControl):Promise<ValidationErrors | null> |Observable<ValidationErrors | null>{

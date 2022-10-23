@@ -32,21 +32,24 @@
                 <button class="nav-link" [routerLink]="['/home-page']" id="pills-back-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
                     aria-selected="false">Categories</button>
-                    
+
             </li>
-            
+
             <li class="nav-item" role="presentation" style="align-items:left">
-                <button class="nav-link" [routerLink]="['/cart']"id="pills-back-tab" data-bs-toggle="pill" data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
-                aria-selected="false" style="-color:crimson; size: 2px; "><i class="fas fa-cart-plus"></i>
-            <div class="badge bg-danger">
-                {{totalItem}}
-            </div></button>
-              </li>
-            
-              <li class="nav-item" role="presentation">
+                <button class="nav-link" [routerLink]="['/cart']" id="pills-back-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-back" type="button" role="tab" aria-controls="pills-back"
+                    aria-selected="false" style="-color:crimson; size: 2px; "><i class="fas fa-cart-plus"></i>
+                    <div class="badge bg-danger">
+                        {{totalItem}}
+                    </div>
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
-                    aria-selected="false" style="color:crimson" (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                    aria-selected="false" style="color:crimson" (click)="logout()"><i
+                        class="fas fa-sign-out-alt"></i>Logout</button>
             </li>
             <!-- <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['/']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
@@ -76,13 +79,13 @@
 
 
 
-    <!-- <div class="leftside">
+<!-- <div class="leftside">
       
-      /> --> 
-      <br>
-      
-    
-    <!-- <div class="rightside">
+      /> -->
+<br>
+
+
+<!-- <div class="rightside">
         <form novalidate #form="ngForm" >
        
         <h3 style="text-align:center">Payment Information</h3>
@@ -117,119 +120,138 @@
         
       </form>
     </div> -->
-  
-    <div class='container-fluid mt-5 mb-5 p-0'>
-        <div class="inner row d-flex justify-content-center">
-            <div class="card col-md-5 col-12 box1">
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="heading mb-3"> PAYMENT METHOD </div>
-                        <div class="sub-heading row text-center m-0">
-                            <div class="col-6 col-md-6 sub-heading1">By Debit Card</div>
-                            <button type="button" (click)=" placeOrderByCashOnDelivery()"    class="col-6 col-md-6 sub-heading2">Cash on Delivery</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p><small> You choose the method of payment with a credit card. Enter your payment details or select another payment method </small></p>
-                        <div class="credit d-block mt-5 mx-auto"> <img class="frnt" src="https://i.imgur.com/Lj98lDm.png" width="200px"> <img class="back" src="https://i.imgur.com/HrUwtFC.png" width="200px"> </div>
+
+<div class='container-fluid mt-5 mb-5 p-0'>
+    <div class="inner row d-flex justify-content-center">
+        <div class="card col-md-5 col-12 box1">
+            <div class="card-content">
+                <div class="card-header">
+                    <div class="heading mb-3"> PAYMENT METHOD </div>
+                    <div class="sub-heading row text-center m-0">
+                        <div class="col-6 col-md-6 sub-heading1">By Debit Card</div>
+                        <button type="button" (click)=" placeOrderByCashOnDelivery()"
+                            class="col-6 col-md-6 sub-heading2">Cash on Delivery</button>
                     </div>
                 </div>
+                <div class="card-body">
+                    <p><small> You choose the method of payment with a credit card. Enter your payment details or select
+                            another payment method </small></p>
+                    <div class="credit d-block mt-5 mx-auto"> <img class="frnt" src="https://i.imgur.com/Lj98lDm.png"
+                            width="200px"> <img class="back" src="https://i.imgur.com/HrUwtFC.png" width="200px"> </div>
+                </div>
             </div>
-            <div class="card col-md-5 col-12 box2">
-                <div class="card-content">
-                    <div class="card-header box2-head">
-                        <div class="heading2"> PAYMENT DETAILS </div>
-                    </div>
-                    <div class="card-body col-10 offset-1">
-                        <form #form="ngForm" [formGroup]="paymentForm">
-                            <div class="form-group"> 
-                                <label><small><strong class="text-muted" for="ownerName">CARD HOLDER</strong></small></label>
-                                 <input class="form-control"  placeholder="Devin Caldwell" id="ownerName" formControlName="ownerName" required> 
-                                 <div class="form-text text-danger"  *ngIf="ownerName.errors?.['required'] && ownerName.touched ">
-                                    Your card name is required.
-                                 </div> 
-                                </div>
-                                
-                            <div class="form-group"> 
-                                <label><small><strong class="text-muted">CARD NUMBER</strong></small></label>
-                                <div class="d-flex card-number">
-                                     <input class="form-control" placeholder="1234-4567-4543-1685" formControlName="cardNumber" required> <i class="fas fa-credit-card text-muted fa-2x"></i> </div>
-                                <div class="form-text text-danger"
-                                *ngIf="cardNumber.errors?.['minLength'] ||  cardNumber.errors?.['maxLength'] && (cardNumber.dirty || cardNumber.touched)">
-                               Card number is required and should contain 16 digits.
-                              </div>
-                            
+        </div>
+        <div class="card col-md-5 col-12 box2">
+            <div class="card-content">
+                <div class="card-header box2-head">
+                    <div class="heading2"> PAYMENT DETAILS </div>
+                </div>
+                <div class="card-body col-10 offset-1">
+                    <form #form="ngForm" [formGroup]="paymentForm">
+                        <div class="form-group">
+                            <label><small><strong class="text-muted" for="ownerName">CARD
+                                        HOLDER</strong></small></label>
+                            <input class="form-control" placeholder="Devin Caldwell" id="ownerName"
+                                formControlName="ownerName" required>
+                            <div class="form-text text-danger"
+                                *ngIf="ownerName.errors?.['required'] && ownerName.touched ">
+                                Your card name is required.
                             </div>
-                            <div class="line3">
-                                <div class="txt d-flex">
-                                    <p><small class="text-muted">EXPERATION DATE</small></p>
-                                    
-                                </div>
-                                <div class="form-group row"> 
-                                    <select class="form-control col-5" id="expiryDate" >
-                                        <option>January</option>
-                                        <option>February</option>
-                                        <option>march</option>
-                                        <option>April</option>
-                                        <option>May</option>
-                                        <option>June</option>
-                                        <option>July</option>
-                                        <option>August</option>
-                                        <option>September</option>
-                                        <option>October</option>
-                                        <option>November</option>
-                                        <option>December</option>
-                                        
-                                    </select> 
-                                    <select class="form-control col-4">
-                                        <option>2020</option>
-                                        <option>2021</option>
-                                        <option>2022</option>
-                                        <option>2023</option>
-                                        <option>2024</option>
-                                        <option>2025</option>
-                                   
-                                        
-                                    </select>
-                                    
 
-                                    <br>
-                                    <div class="txt d-flex" >
-                                            
-                                        <p><small class="text-muted">CVV</small></p>
-                                    </div>
-                                     <input class="col-3 col-md-2 offset-md-0 text-left" type="text" placeholder="234" formControlName="cvv" required> </div>
-                                     <div class="form-text text-danger"
-                                     *ngIf="cvv.errors?.['minLength'] ||  cvv.errors?.['maxLength'] && (cvv.dirty || cvv.touched)">
-                                    Cvv is invalid .Cvv should contain 3 digits only.
-                                   </div>
-                                   <div class="form-text text-danger"  *ngIf="cvv.errors?.['required'] && cvv.touched ">
-                                    CVV is required.
-                                 </div> 
-                                    </div>
-                        </form>
-                    </div>
-                    <div class="card-footer col-10 offset-1 border-0 footer2">
-                        <div class="d-flex total mb-5">
-                            <p><strong>Payment of</strong></p>
-                            <p style="color:black">Rs. {{amount}}</p>
-                        </div> <button  (click)="placeOrderByCard()" class="btn col-12"> PAY </button>
-                    </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><small><strong class="text-muted">CARD NUMBER</strong></small></label>
+                            <div class="d-flex card-number">
+                                <input class="form-control" placeholder="1234-4567-4543-1685"
+                                    formControlName="cardNumber" required > <i
+                                    class="fas fa-credit-card text-muted fa-2x"></i>
+                            </div>
+                            <!-- <div class="form-text text-danger"
+                                *ngIf="cardNumber.errors?.['pattern'] && cardNumber.touched">
+                                Card number should be of 16 digits.
+                            </div> -->
+                            <div class="form-text text-danger"
+                                *ngIf="cardNumber.errors?.['minLength'] ||  cardNumber.errors?.['maxLength'] && (cardNumber.dirty || cardNumber.touched)">
+                                Card number is required and should contain 16 digits.
+                            </div>
+                            <div class="form-text text-danger"
+                                *ngIf="cardNumber.errors?.['required'] && cardNumber.touched ">
+                                 Card number is required.
+                            </div>
+
+                        </div>
+                        <div class="line3">
+                            <div class="txt d-flex">
+                                <p><small class="text-muted">EXPERATION DATE</small></p>
+
+                            </div>
+                            <div class="form-group row">
+                                <select class="form-control col-5" id="expiryDate">
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>march</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+
+                                </select>
+                                <select class="form-control col-4">
+                                    <option>2020</option>
+                                    <option>2021</option>
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+
+
+                                </select>
+
+
+                                <br>
+                                <div class="txt d-flex">
+
+                                    <p><small class="text-muted">CVV</small></p>
+                                </div>
+                                <input class="col-3 col-md-2 offset-md-0 text-left" type="text" placeholder="234"
+                                    formControlName="cvv" required>
+                            </div>
+                            <div class="form-text text-danger"
+                                *ngIf="cvv.errors?.['minLength'] ||  cvv.errors?.['maxLength'] && (cvv.dirty || cvv.touched)">
+                                Cvv is invalid .Cvv should contain 3 digits only.
+                            </div>
+                            <div class="form-text text-danger" *ngIf="cvv.errors?.['required'] && cvv.touched ">
+                                CVV is required.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer col-10 offset-1 border-0 footer2">
+                    <div class="d-flex total mb-5">
+                        <p><strong>Payment of</strong></p>
+                        <p style="color:black">₹ {{amount}}</p>
+                    </div> <button (click)="placeOrderByCard()" class="btn col-12"> PAY </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
-    <footer class="bg-dark text-center text-white">
+<footer class="bg-dark text-center text-white">
 
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2022 Copyright:
-      <a class="text-white">Online Shopping - SHOPSY.com</a>
+        © 2022 Copyright:
+        <a class="text-white">Online Shopping - SHOPSY.com</a>
     </div>
     <!-- Copyright -->
-  </footer>
-
+</footer>

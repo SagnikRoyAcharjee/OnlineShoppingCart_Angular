@@ -62,22 +62,22 @@
     <div fxLayout="row wrap" fxLayoutGap="15px grid">
         <div fxFlex="15%"  *ngFor="let productList of productList">
             <mat-card class="mat-elevation-4">
-                <a  (click)="filter('categoryName')"> 
+                <a routerLink="/view-product-info/{{productList.id}}">
                 <img mat-card-image src="{{productList.productImage}}">
-                 
+                 </a>
                 <mat-card-content>
-                    <p>Category id : {{productList.categoryId}}</p>
+                    <!-- <p>Category id : {{productList.categoryId}}</p> -->
                     <a  class="list-group-item">
                         <strong>{{productList.name}}</strong>
                     </a>
                     <br>
                 
                
-                    <p><strong>Price: </strong>Rs.{{productList.price}}</p>
+                    <p><strong>Price: </strong>₹ {{productList.price}}</p>
                     <p><strong>Description: </strong>{{productList.productDescription}}</p>
                 
                 </mat-card-content>
-                </a>
+               
                 
                 <!-- <mat-card-actions>
                     <button mat-button  style="background-color:rgb(224, 117, 35)  ">Checkout</button>

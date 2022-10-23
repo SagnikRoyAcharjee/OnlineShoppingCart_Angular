@@ -44,6 +44,7 @@ checkoutForm = new FormGroup({
   fullname: new FormControl("", [Validators.required,
   Validators.minLength(3),
   Validators.maxLength(25),
+  Validators.pattern("[a-zA-Z ]*")
   ]),
   phoneNo: new FormControl("", [
     Validators.required,

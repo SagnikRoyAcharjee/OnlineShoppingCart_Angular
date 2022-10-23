@@ -35,6 +35,8 @@ export class ProductsDisplayComponent implements OnInit {
 
   }
 
+  
+
   getAllProducts() {
     this.prodService.getProducts()
       .subscribe(

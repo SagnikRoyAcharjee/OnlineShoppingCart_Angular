@@ -95,9 +95,9 @@
                             <td>{{product.name}}</td>
 
                             <td style="width:10%">{{product.productDescription}}</td>
-                            <td style="width:14%">Rs. {{product.price}}</td>
+                            <td style="width:14%">₹ {{product.price}}</td>
                             <!-- <td>{{product.quantity}}</td> -->
-                            <td>{{product.price}} </td>
+                            <td> ₹ {{product.price}} </td>
 
                             <td>
                                 <button (click)="removeItem(product)" class="btn btn-danger"><i
@@ -117,7 +117,7 @@
                             <td><button [routerLink]="['/product-display']" class="btn btn-success">Shop More</button>
                             </td>
                             <td><button (click)=check()   class="btn btn-primary">Checkout</button> </td>
-                            <td><strong>Total Amount : Rs.{{grandTotal}} </strong></td>
+                            <td><strong>Total Amount : ₹ {{grandTotal}} </strong></td>
                         </tr>
 
                     </tbody>

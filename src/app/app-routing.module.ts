@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 
 import { CategoryComponent } from './COMPONENTS/AdminSection/category/category.component';
 import { ProductComponent } from './COMPONENTS/AdminSection/product/product.component';
+import { AboutUsComponent } from './COMPONENTS/CustomerSection/about-us/about-us.component';
 import { CartComponent } from './COMPONENTS/CustomerSection/cart/cart.component';
 import { CheckoutDirectComponent } from './COMPONENTS/CustomerSection/checkout-direct/checkout-direct.component';
 import { CheckoutComponent } from './COMPONENTS/CustomerSection/checkout/checkout.component';
@@ -47,6 +48,10 @@ const routes: Routes = [
     component: ContactUsComponent
   },
   {
+    path: 'about-us',
+    component: AboutUsComponent
+  },
+  {
     path: 'category',
     component: CategoryComponent,
     canActivate: [AuthGuardService]
@@ -71,11 +76,13 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+    
 
   },
   {
     path: 'checkout',
-    component: CheckoutComponent
+    component: CheckoutComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'checkout-direct/:id',
@@ -83,15 +90,18 @@ const routes: Routes = [
   },
   {
     path: 'payment',
-    component: PaymentComponent
+    component: PaymentComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'place-order',
-    component: PlaceOrderComponent
+    component: PlaceOrderComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'order-details',
-    component: OrderDetailsComponent
+    component: OrderDetailsComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: '**',

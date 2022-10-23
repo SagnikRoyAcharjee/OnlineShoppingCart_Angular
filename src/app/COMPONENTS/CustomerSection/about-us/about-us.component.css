@@ -3,20 +3,20 @@
     background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
     color:white;
     font-weight: bold;
-    border: 1px solid #f1f1f1;
+    border: 3px solid #f1f1f1;
     position:absolute;
-    top: 5%;
-    left: 25%;
-    bottom: -8.5%;
-    transform: translate(10%, 5%);
+    top: 540%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
     z-index: 2;
-    width: 40%;
-    padding: 15px;
-    /* text-align: left; */
+    width: 100%;
+    padding: 20px;
+    text-align: left;
   }
   footer{
     position:absolute;
-    bottom: -160px;
+    bottom: -10px;;
     width:100%;
     padding:1px;
 
