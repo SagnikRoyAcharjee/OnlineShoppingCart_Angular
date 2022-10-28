@@ -65,7 +65,7 @@ export class HomePageComponent implements OnInit {
   goTo(){
     if(this.category.id==this.productList.categoryId)
     {
-      this.router.navigate(['/products-by-category'])
+      this.router.navigate(['../products-by-category'])
        this.productList;
     
     }

@@ -151,8 +151,8 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill ">
-                          <label class="form-label" for="number"><strong>Phone No.</strong></label>
-                          <input type="number" id="number"  placeholder="calling no." name="phoneNo" #phoneNo="ngModel" [(ngModel)]="service.formData.phoneNo" class="form-control"
+                          <label class="form-label" for="text"><strong>Phone No.</strong></label>
+                          <input type="text" id="text"  placeholder="calling no." name="phoneNo" #phoneNo="ngModel" [(ngModel)]="service.formData.phoneNo" class="form-control"
                           required  pattern="^((\\+91-?)|0)?[0-9]{10}$"/>
                           <div  class="form-text text-danger">   
                             <div *ngIf="phoneNo.errors?.['pattern']">Please, Enter 10 digit Mobile Number.</div>  

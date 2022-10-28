@@ -122,7 +122,7 @@ this.catservice.deleteCategory(id)
     this.loginService.removeToken();
     console.log("Log out initiated");
     // this.cartService.removeAllCart();
-    alert('Are ypou sure you want to log out ?');
+    alert('Are you sure you want to log out ?');
     this.router.navigate(['']);
   }
 }

@@ -45,7 +45,7 @@ export class ProductServiceService {
 
   getProductsByCategoryId(categoryId: any):Observable<Product[]>{
    
-   const  baseUrl="https://localhost:7143/api/Product?catId=" +categoryId;
+   const  baseUrl="https://localhost:7143/api/Product?categoryId=" +categoryId;
    console.log(categoryId);
     return this.http.get<Product[]>(baseUrl);
   }

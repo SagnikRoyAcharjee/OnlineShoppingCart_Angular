@@ -106,6 +106,7 @@ export class ProductComponent implements OnInit {
 this.prodService.deleteProduct(id)
 .subscribe(
   res =>{
+    alert("Product Deleted !")
     this.getAllProducts();
   }
 )
@@ -120,6 +121,7 @@ this.prodService.deleteProduct(id)
     this.prodService.updateProduct(product)
     .subscribe(
       res =>{
+        alert("Product has been updated successfully")
        this.getAllProducts();
       }
  

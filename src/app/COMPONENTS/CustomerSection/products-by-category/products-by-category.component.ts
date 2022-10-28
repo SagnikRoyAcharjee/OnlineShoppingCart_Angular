@@ -20,15 +20,19 @@ export class ProductsByCategoryComponent implements OnInit {
     , public router:Router,public loginService:LoginService) { }
   searchCategory!: Category;
   public filterCategory: any;
-  productList: any;
+  productList: Product[]=[];
   categoryId: any;
   product:any;
   id:any;
   ngOnInit(): void {
-    // this.activatedRoute.queryParams.subscribe(params => {
-    //   this.searchCategory = params['categoryId'];
-    // });
-    this.getAllProducts();
+    this.activatedRoute.queryParams.subscribe(data => {
+      this.searchCategory = data['id'];
+     });
+
+     this.prodService.getProductsByCategoryId(this.searchCategory).subscribe(categoryData=>{
+      this.productList=categoryData
+     })
+    // this.getAllProducts();
 
     // this.activatedRoute.paramMap.subscribe(params => {
     //   this.categoryId = params.get('id');
@@ -42,15 +46,15 @@ export class ProductsByCategoryComponent implements OnInit {
         this.totalItem = res.length;
       })
 
-      this.activatedRoute.paramMap.subscribe(params=>{
-        this.id=params.get('id');
+      // this.activatedRoute.paramMap.subscribe(params=>{
+      //   this.id=params.get('id');
   
-        });
-        this.getProductById( this.id);
-        this.cartService.getProducts()
-        .subscribe(res => {
-          this.totalItem = res.length;
-        })
+      //   });
+      //   this.getProductById( this.id);
+      //   this.cartService.getProducts()
+      //   .subscribe(res => {
+      //     this.totalItem = res.length;
+      //   })
   
   }
 
@@ -78,14 +82,14 @@ export class ProductsByCategoryComponent implements OnInit {
         })
   }
 
-  filter(categoryName: any) {
-    this.filterCategory = this.productList.search((a: any) => {
-      if (a.categoryId == categoryName || categoryName == '') {
-        return a;
-      }
-    })
+//   filter(categoryName: any) {
+//     this.filterCategory = this.productList.search((a: any) => {
+//       if (a.categoryId == categoryName || categoryName == '') {
+//         return a;
+//       }
+//     })
 
-}
+// }
   logout(){
     this.loginService.removeToken();
     console.log("Log out initiated");

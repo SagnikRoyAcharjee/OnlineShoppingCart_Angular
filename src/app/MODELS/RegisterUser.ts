@@ -9,8 +9,7 @@ export class RegisterUser {
     address:string='';
     email:string='';
     phoneNo:number=0;
-    // DateOfBirth:string='';
     password:string='';
-    // ConfirmPass:string='';
+    
 
 }
