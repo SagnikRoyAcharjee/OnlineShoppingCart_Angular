@@ -28,9 +28,6 @@ export class RegisterUserService {
  return this.http.get<RegisterUser[]>(`${this.baseUrl}?username=${username}`)
   }
 
-  deleteUserAccount(id:number):Observable<RegisterUser>{
-    return this.http.delete<RegisterUser>(this.baseUrl +'/' +id);
-
-  }
+  
 
 }

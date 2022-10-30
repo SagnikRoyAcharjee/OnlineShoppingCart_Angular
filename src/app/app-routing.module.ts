@@ -6,7 +6,7 @@ import { CategoryComponent } from './COMPONENTS/AdminSection/category/category.c
 import { ProductComponent } from './COMPONENTS/AdminSection/product/product.component';
 import { AboutUsComponent } from './COMPONENTS/CustomerSection/about-us/about-us.component';
 import { CartComponent } from './COMPONENTS/CustomerSection/cart/cart.component';
-import { CheckoutDirectComponent } from './COMPONENTS/CustomerSection/checkout-direct/checkout-direct.component';
+
 import { CheckoutComponent } from './COMPONENTS/CustomerSection/checkout/checkout.component';
 import { ContactUsComponent } from './COMPONENTS/CustomerSection/contact-us/contact-us.component';
 import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
@@ -70,7 +70,7 @@ const routes: Routes = [
     component: ViewProductInfoComponent
   },
   {
-    path: 'products-by-category/:categoryId',
+    path: 'products-by-category/:id',
     component: ProductsByCategoryComponent
   },
   {
@@ -84,10 +84,7 @@ const routes: Routes = [
     component: CheckoutComponent,
     canActivate: [AuthGuardService]
   },
-  {
-    path: 'checkout-direct/:id',
-    component: CheckoutDirectComponent
-  },
+  
   {
     path: 'payment',
     component: PaymentComponent,

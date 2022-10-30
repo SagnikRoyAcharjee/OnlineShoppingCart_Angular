@@ -49,21 +49,10 @@ export class ViewProductInfoComponent implements OnInit {
     this.loginService.removeToken();
     console.log("Log out initiated");
     this.cartService.removeAllCart();
-    alert('Are ypou sure you want to log out ?');
+    alert('Are you sure you want to log out ?');
     this.router.navigate(['']);
   }
 
-  deleteAccount(id:number)
-  {
-    
-    if(this.loginService.isLoggedin()){
-      if(this.registerService.getUserByUsername ==this.id) 
-      {
-        console.log(id)
-        alert("Are you sure you want to delete your account?")
-        this.registerService.deleteUserAccount;
-      }
-    }
-  }
+ 
 
 }

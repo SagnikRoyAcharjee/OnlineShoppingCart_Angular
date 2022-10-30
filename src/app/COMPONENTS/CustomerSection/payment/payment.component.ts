@@ -79,22 +79,18 @@ export class PaymentComponent implements OnInit {
   }
 
 
-  // Check() {
-  //   if (this.isSelected) {
-  //     this.paymentMode = "Cash on Delivery";
-
-  //   }
-  //   else {
-  //     this.paymentMode = "By Debit Card";
-  //   }
-  // }
+  
 
   placeOrderByCashOnDelivery() {
     let obj: Order = {} as Order;
     this.listOrder.forEach(data => {
       obj = {
         billAmount: this.cartService.getTotalPrice(), dateOfOrder: new Date(),
+<<<<<<< HEAD
         modeOfPayment: "Cash On Delivery", usersId: 1
+=======
+        modeOfPayment: "Cash On Delivery", usersId: 16
+>>>>>>> 6eff0a2a2c1b5552086b039eb0493aa4e70a9276
       }
       return obj;
     })
@@ -113,7 +109,7 @@ export class PaymentComponent implements OnInit {
     this.listOrder.forEach(data => {
       obj = {
         billAmount: this.cartService.getTotalPrice(), dateOfOrder: new Date(),
-        modeOfPayment: "By Debit Card", usersId: 5
+        modeOfPayment: "By Debit Card", usersId: 16
       }
       return obj;
     })

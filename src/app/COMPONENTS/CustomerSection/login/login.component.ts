@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
                 }
                 else if (this.loginForm.value.role == 'Customer') {
                   this.router.navigate(['home-page'])
-                  alert("Customer Log in successful !!!!")
+                  alert("Customer Log in successful . Happy Shopping!!!!")
                 }
                 else {
                   this.router.navigate(['register'])
@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit {
               // alert("Logged in Successfully !!!")
             },
             error: () => {
-              alert("Incorrect Credentials, Please enter valid details");
+              alert("Incorrect Credentials, Please enter valid details or Register to the site if you haven't already !");
             }
           }
         )
@@ -100,50 +100,12 @@ export class LoginComponent implements OnInit {
   return this.loginForm.get("role") as FormControl;
  }
 
-  // this.loginService
-  //   .loginUser([this.loginForm.value.username, this.loginForm.value.password,this.loginForm.value.role])
-  //   .subscribe(res => {
-  //     if (res == 'Failure') {
-  //       this.isUserValid = false;
-  //       alert('Login unsuccessful ,Invalid Details.');
-  //     }
-  //     else {
-  //       this.isUserValid = true;
-  //       // this.role="Admin";
-  //       if (this.loginForm.value.role == "Admin") {
-  //         alert('Login Successful as Admin.');
-  //         this.router.navigate(["/category"]);
-  //       }
-  //       else {
-  //         alert('Login Succesful as Customer.');
-  //         this.router.navigate(["home-page"]);
-  //       }
-  //     }
-
-  //   });
+ 
 }
 
-  // getUsersByUsername(uName: string) {
-  //   return this.registerService.getUserByUsername(uName)
-  //     .subscribe(
-  //       res => {
-          // this.registerUser=this.role;
-  //         console.log(res);
-
-  //       }
-  //     )
-  // }
 
 
 
-  // get Username(): FormControl {
-  //   return this.loginForm.get('username') as FormControl;
-  // }
-  // get Password(): FormControl {
-  //   return this.loginForm.get('password') as FormControl;
-  // }
-  // get role(): FormControl {
-  //   return this.loginForm.get('role') as FormControl;
-  // }
+ 
 
 

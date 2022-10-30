@@ -10,12 +10,11 @@ export class HttpInterceptorService implements HttpInterceptor {
   service: any;
 
   
-  constructor(service: LoginService, private inject: Injector) { }
+  constructor( private inject: Injector) { }
 
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // throw new Error('Method not implemented.');
-    // let token=localStorage.getItem('token');
+    
     let accountService = this.inject.get(LoginService);
     let jwttoken = req.clone({
       setHeaders: {
@@ -28,27 +27,6 @@ export class HttpInterceptorService implements HttpInterceptor {
 
 
 
-    // token: this.service.GetToken();
-    // let token = localStorage.getItem('token')
-
-    // let jwttoken = req.clone({
-
-    //   setHeaders: {
-    //     Authorization: 'bearer ' + token
-    //   }
-    // })
-    // return next.handle(jwttoken)
-    //   .pipe(
-    //     catchError((errormsg: HttpErrorResponse) => {
-    //       console.log(errormsg);
-    //       if (errormsg.status != 200) {
-    //         alert(errormsg.message);
-
-    //         return throwError(errormsg);
-    //       }
-    //       return throwError(errormsg);
-    //     })
-    //   );
-    // }
+    
   }
 }

@@ -6,7 +6,7 @@ import { User } from 'src/app/MODELS/checkoutUser.model';
 import { RegisterUser } from 'src/app/MODELS/RegisterUser';
 import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
-import { CheckoutService } from 'src/app/SERVICES/CustomerService/checkout.service';
+
 
 @Component({
   selector: 'app-checkout',
@@ -25,7 +25,7 @@ export class CheckoutComponent implements OnInit {
   
   checkout:Checkout=new Checkout();
 
-  constructor(private cartService: CartService,public checkoutService:CheckoutService ,public loginService:LoginService,public router:Router) { }
+  constructor(private cartService: CartService,public loginService:LoginService,public router:Router) { }
 
   ngOnInit(): void {
    

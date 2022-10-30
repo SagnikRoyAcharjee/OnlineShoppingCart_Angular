@@ -17,7 +17,6 @@ import { FormBuilder } from '@angular/forms';
 import { CategoryServiceService } from './SERVICES/AdminService/category-service.service';
 import { HttpInterceptorService } from './SERVICES/AccountService/http-interceptor.service';
 import { PageNotFoundComponent } from './SHARED/Component/page-not-found/page-not-found.component';
-import { UniqueUsernameValidatorDirective } from './SHARED/Directive/unique-username-validator.directive';
 import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
 import { CartComponent } from './COMPONENTS/CustomerSection/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +31,7 @@ import { ProductsByCategoryComponent } from './COMPONENTS/CustomerSection/produc
 import { CheckoutComponent } from './COMPONENTS/CustomerSection/checkout/checkout.component';
 import { PaymentComponent } from './COMPONENTS/CustomerSection/payment/payment.component';
 import { PlaceOrderComponent } from './COMPONENTS/CustomerSection/place-order/place-order.component';
-import { CheckoutDirectComponent } from './COMPONENTS/CustomerSection/checkout-direct/checkout-direct.component';
+
 import { ContactUsComponent } from './COMPONENTS/CustomerSection/contact-us/contact-us.component';
 import { OrderDetailsComponent } from './COMPONENTS/CustomerSection/order-details/order-details.component';
 import { AboutUsComponent } from './COMPONENTS/CustomerSection/about-us/about-us.component';
@@ -49,7 +48,6 @@ import { AboutUsComponent } from './COMPONENTS/CustomerSection/about-us/about-us
     ProductComponent,
     WelcomeComponent,
     PageNotFoundComponent,
-    UniqueUsernameValidatorDirective,
     HomePageComponent,
     CartComponent,
     SearchPipe,
@@ -59,7 +57,6 @@ import { AboutUsComponent } from './COMPONENTS/CustomerSection/about-us/about-us
     CheckoutComponent,
     PaymentComponent,
     PlaceOrderComponent,
-    CheckoutDirectComponent,
     ContactUsComponent,
     OrderDetailsComponent,
     AboutUsComponent
