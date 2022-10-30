@@ -94,7 +94,7 @@ export class PaymentComponent implements OnInit {
     this.listOrder.forEach(data => {
       obj = {
         billAmount: this.cartService.getTotalPrice(), dateOfOrder: new Date(),
-        modeOfPayment: "Cash On Delivery", usersId: 5
+        modeOfPayment: "Cash On Delivery", usersId: 1
       }
       return obj;
     })
