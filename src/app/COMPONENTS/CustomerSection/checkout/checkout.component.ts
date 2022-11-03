@@ -36,6 +36,7 @@ export class CheckoutComponent implements OnInit {
       })
     this.amount=  this.cartService.getTotalPrice();
     // this.amount=this.checkoutService.getPrice();
+    
       
 
       
@@ -68,11 +69,25 @@ get fullname():FormControl{
  }
 
  logout(){
-  this.loginService.removeToken();
-  console.log("Log out initiated");
-  this.cartService.removeAllCart();
-  alert('Are ypou sure you want to log out ?');
-  this.router.navigate(['']);
+  if(this.loginService.isLoggedin()){
+    this.loginService.removeToken();
+    console.log("Log out initiated");
+     this.cartService.removeAllCart();
+    alert('Are you sure you want to log out ?');
+    this.router.navigate(['']);
+  }
+  else{
+    alert("You are not logged in . PLease Login First")
+    this.router.navigate(['/login'])
+  }
+}
+checkAmount(){
+  if(this.amount == 0){
+    alert("Payment unsuccessful , Please Order something.");
+  }
+  else{
+    this.router.navigate(['/payment']);
+  }
 }
 
 }

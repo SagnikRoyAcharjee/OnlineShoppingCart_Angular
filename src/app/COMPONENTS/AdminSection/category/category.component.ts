@@ -6,6 +6,7 @@ import { Category } from 'src/app/MODELS/Category.model';
 import { Product } from 'src/app/MODELS/Product.model';
 import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 import { CategoryServiceService } from 'src/app/SERVICES/AdminService/category-service.service';
+import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
 
 @Component({
   selector: 'app-category',
@@ -21,7 +22,7 @@ export class CategoryComponent implements OnInit {
     categoryImage:''
   }
  
-  constructor(public catservice:CategoryServiceService, public loginService:LoginService, public router:Router) { }
+  constructor(public catservice:CategoryServiceService, public loginService:LoginService, public router:Router, public cartService:CartService) { }
   
   
 
@@ -119,10 +120,16 @@ this.catservice.deleteCategory(id)
 
   }
   logout(){
-    this.loginService.removeToken();
-    console.log("Log out initiated");
-    // this.cartService.removeAllCart();
-    alert('Are you sure you want to log out ?');
-    this.router.navigate(['']);
+    if(this.loginService.isLoggedin()){
+      this.loginService.removeToken();
+      console.log("Log out initiated");
+       this.cartService.removeAllCart();
+      alert('Are you sure you want to log out ?');
+      this.router.navigate(['']);
+    }
+    else{
+      alert("You are not logged in . PLease Login First")
+      this.router.navigate(['/login'])
+    }
   }
 }

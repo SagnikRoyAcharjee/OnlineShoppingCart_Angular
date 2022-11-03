@@ -6,13 +6,13 @@ footer{
 
   }
   content{
-    color:aliceblue;
+    color:rgb(22, 22, 22);
     
   }
   .card-body{
     
     text-align: left;
-    color:aliceblue;
+    color:rgb(5, 5, 5);
     
 
 }
@@ -22,8 +22,8 @@ footer{
    
 }
 .card{
-    margin-top: -3%;
-    background-color: rgb(38, 38, 40);
+    margin-top: 10%;
+    background-color: rgb(240, 240, 244);
     
     
 }
@@ -34,7 +34,7 @@ footer{
 h5{
     text-align: center;
     font-size:30px;
-    color:aliceblue;
+    color:rgb(17, 18, 18);
 }
 
 .col-md-6{
@@ -82,13 +82,13 @@ box-shadow: 3px 3px 6px #38373785;
             font-weight: 400;
             font-size: 1rem;
             margin-top: 10px;
-            width:15%;
+            width:30%;
             letter-spacing: .11rem;
             outline:none;
             /* margin-left: 300px; */
             position: absolute;
     bottom: 23px;
-    left: 300px;
+    left: 250px;
             
             
             

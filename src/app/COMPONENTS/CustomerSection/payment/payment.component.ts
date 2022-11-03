@@ -47,7 +47,8 @@ export class PaymentComponent implements OnInit {
     cvv: new FormControl("", [
       Validators.minLength(3),
       Validators.maxLength(3),
-      Validators.required
+      Validators.required,
+      Validators.pattern('^[0-9]{3,4}$')
     ]),
 
   });
@@ -107,8 +108,16 @@ export class PaymentComponent implements OnInit {
         billAmount: this.cartService.getTotalPrice(), dateOfOrder: new Date(),
         modeOfPayment: "By Debit Card", usersId: 16
       }
+      
+      
+        
+      
       return obj;
     })
+    if(this.cartService.getTotalPrice() == 0){
+      alert("Cannot make a payment. Please enter card details and please order something.");
+    }
+    else {
     this.orderService.insertOrder(obj).subscribe(res => {
       console.log(res);
       alert("Are you sure you want to place your order?");
@@ -118,18 +127,25 @@ export class PaymentComponent implements OnInit {
     
 
   }
+}
 
 
 
 
 
 
-  logout() {
-    this.loginService.removeToken();
-    console.log("Log out initiated");
-    this.cartService.removeAllCart();
-    alert('Are ypou sure you want to log out ?');
-    this.router.navigate(['']);
+  logout(){
+    if(this.loginService.isLoggedin()){
+      this.loginService.removeToken();
+      console.log("Log out initiated");
+       this.cartService.removeAllCart();
+      alert('Are you sure you want to log out ?');
+      this.router.navigate(['']);
+    }
+    else{
+      alert("You are not logged in . PLease Login First")
+      this.router.navigate(['/login'])
+    }
   }
 
 }

@@ -74,14 +74,16 @@
                     <div class="container-fluid">
                       <a class="navbar-brand" href="#">
                         <img
-                          src="https://crazyukti.in/wp-content/uploads/2021/09/IMG_20210909_175725.png"
+                          src="https://play-lh.googleusercontent.com/tAgbpyJW4Yy3egbm_Kjh1EVfqUSkba1s5g5bitqsUvCqc1acmY08CbuTwSOGOOoLp68=s200"
                           class="me-2"
-                          height="20"
+                          height="45"
                           alt="shopsy Logo"
                           loading="lazy"
                         />
-                        <small>SHOPSY.com</small>
+                        <small><i><strong>SHOPSY.com</strong></i></small>
                       </a>
+                      
+                     
                       <ul class="nav nav-pills mb-10" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                           <button class="nav-link active" [routerLink]="['/login']"      id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true"><i class="fas fa-user-circle">Login</i></button>
@@ -92,6 +94,7 @@
                          <li class="nav-item" role="presentation">
                           <button class="nav-link" [routerLink]="['/home-page']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false"><i class="fas fa-shopping-bag"></i>Home Page</button>
                         </li> 
+                        <ul></ul>
                         <li class="nav-item" role="presentation">
                           <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
                               data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
@@ -124,83 +127,83 @@
                       
                       <p>Description: Products and Category requirements are done here.</p> 
                     </div> 
-                    <div>
+                    <div class="bg-text1">
+                      <div class="container">
+                        <!-- <br>
+                        <p style="text-align:center " >Go to the Product section from here </p>
                       
+                      <div class="d-flex justify-content-center mx-1 mb-1 mb-lg-1">
+                        <button type="submit" class="btn btn-success btn-sm" [routerLink]="['/product']" >Product</button>
+                         </div> -->
+                      
+                      
+                        
+                        <div class="category-container">
+                          <div class="category-form">
+                            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                              <!-- <div class="form-group">
+                                <label for="categoryId">Id</label>
+                                <input type="text" name="categoryId" [(ngModel)]="category.id">
+                                </div> -->
+                              <div class="form-group">
+                                <label for="categoryName" >Name</label>
+                                <input type="text" name="categoryName" #categoryName="ngModel" [(ngModel)]="category.categoryName" class="form-control" required />
+                                <div class="form-text text-danger"
+                                *ngIf="categoryName.errors?.['required'] && (categoryName.dirty || categoryName.touched)">
+                                Category is required.
+                              </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="categoryName" >Image</label>
+                                <input type="text" name="categoryImage" #categoryImage="ngModel" [(ngModel)]="category.categoryImage" class="form-control"  />
+                                
+                              </div>
+                              <div class="form-group">
+                               
+                                <button>Save</button>
+                                
+                                </div>
+                              
+                            </form>
+                          </div> 
+                         
+                          <div class="category-grid">
+                            <div class="grid">
+                              <span>__ID</span>
+                              <span>_____</span>
+                              <span>_____CATEGORY_</span>
+                              </div>
+                      
+                            <div  class="category-row" *ngFor= "let category of categories">
+                              <div class="category-row-details" (click)="populateForm(category)">
+                                <span>{{category.id}}</span> 
+                                <span>{{ category.categoryName }}</span>
+                              </div>
+                            
+                              <!-- <div class="category-row" >
+                                 <div class="category-row-details"> --> 
+                                   <!-- <span>19</span>
+                                   <span>Jewellery</span>
+                                </div> -->
+                      
+                              <div class="category-row-action">
+                                <a (click)="deleteCategory(category.id)">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg></a>
+                              </div>
+                             </div>
+                      
+                          </div>
+                        </div>
+                        <!-- <div class="d-flex justify-content-center ">
+                          <button type="submit" class="btn btn-danger btn-sm" [routerLink]="['']" >Log out</button>
+                        </div>   -->
+                      </div>
                     </div>
     
-<div class="container">
-  <!-- <br>
-  <p style="text-align:center " >Go to the Product section from here </p>
 
-<div class="d-flex justify-content-center mx-1 mb-1 mb-lg-1">
-  <button type="submit" class="btn btn-success btn-sm" [routerLink]="['/product']" >Product</button>
-   </div> -->
-
-
-  
-  <div class="category-container">
-    <div class="category-form">
-      <form #form="ngForm" (ngSubmit)="onSubmit()">
-        <!-- <div class="form-group">
-          <label for="categoryId">Id</label>
-          <input type="text" name="categoryId" [(ngModel)]="category.id">
-          </div> -->
-        <div class="form-group">
-          <label for="categoryName" >Name</label>
-          <input type="text" name="categoryName" #categoryName="ngModel" [(ngModel)]="category.categoryName" class="form-control" required />
-          <div class="form-text text-danger"
-          *ngIf="categoryName.errors?.['required'] && (categoryName.dirty || categoryName.touched)">
-          Category is required.
-        </div>
-        </div>
-        <div class="form-group">
-          <label for="categoryName" >Image</label>
-          <input type="text" name="categoryImage" #categoryImage="ngModel" [(ngModel)]="category.categoryImage" class="form-control"  />
-          
-        </div>
-        <div class="form-group">
-         
-          <button>Save</button>
-          
-          </div>
-        
-      </form>
-    </div> 
-   
-    <div class="category-grid">
-      <div class="grid">
-        <span>__ID</span>
-        <span>_____</span>
-        <span>_____CATEGORY_</span>
-        </div>
-
-      <div  class="category-row" *ngFor= "let category of categories">
-        <div class="category-row-details" (click)="populateForm(category)">
-          <span>{{category.id}}</span> 
-          <span>{{ category.categoryName }}</span>
-        </div>
-      
-        <!-- <div class="category-row" >
-           <div class="category-row-details"> --> 
-             <!-- <span>19</span>
-             <span>Jewellery</span>
-          </div> -->
-
-        <div class="category-row-action">
-          <a (click)="deleteCategory(category.id)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-          </svg></a>
-        </div>
-       </div>
-
-    </div>
-  </div>
-  <!-- <div class="d-flex justify-content-center ">
-    <button type="submit" class="btn btn-danger btn-sm" [routerLink]="['']" >Log out</button>
-  </div>   -->
-</div>
 
 
      

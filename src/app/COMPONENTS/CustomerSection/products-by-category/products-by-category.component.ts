@@ -90,13 +90,19 @@ export class ProductsByCategoryComponent implements OnInit {
 //     })
 
 // }
-  logout(){
+logout(){
+  if(this.loginService.isLoggedin()){
     this.loginService.removeToken();
     console.log("Log out initiated");
      this.cartService.removeAllCart();
-    alert('Are ypou sure you want to log out ?');
+    alert('Are you sure you want to log out ?');
     this.router.navigate(['']);
   }
+  else{
+    alert("You are not logged in . PLease Login First")
+    this.router.navigate(['/login'])
+  }
+}
   
   addToCart(productList: any) {
     this.cartService.addToCart(productList);

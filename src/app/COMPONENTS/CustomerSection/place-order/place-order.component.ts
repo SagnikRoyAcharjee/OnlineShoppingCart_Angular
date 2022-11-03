@@ -20,11 +20,17 @@ export class PlaceOrderComponent implements OnInit {
       })
   }
   logout(){
-    this.loginService.removeToken();
-    console.log("Log out initiated");
-    this.cartService.removeAllCart();
-    alert('Are ypou sure you want to log out ?');
-    this.router.navigate(['']);
+    if(this.loginService.isLoggedin()){
+      this.loginService.removeToken();
+      console.log("Log out initiated");
+       this.cartService.removeAllCart();
+      alert('Are you sure you want to log out ?');
+      this.router.navigate(['']);
+    }
+    else{
+      alert("You are not logged in . PLease Login First")
+      this.router.navigate(['/login'])
+    }
   }
 
 }

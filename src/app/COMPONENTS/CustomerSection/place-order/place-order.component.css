@@ -14,14 +14,14 @@ footer{
     background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
     color:white;
     font-weight: bold;
-    border: 3px solid #f1f1f1;
+    border: 3px solid #090909;
     position:absolute;
     top:55%;
-    left: 30%;
+    left: 25%;
     
     transform: translate(-50%, -50%);
     z-index: 2;
-    width: 50%;
+    width: 40%;
     padding: 20px;
     text-align: center;
   }

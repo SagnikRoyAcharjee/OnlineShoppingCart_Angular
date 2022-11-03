@@ -1,10 +1,20 @@
 <nav class="navbar navbar-dark bg-dark" style="height: 74px;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="https://crazyukti.in/wp-content/uploads/2021/09/IMG_20210909_175725.png" class="me-2" height="20"
-                alt="shopsy Logo" loading="lazy" />
-            <small>SHOPSY.com</small>
-        </a>
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://play-lh.googleusercontent.com/tAgbpyJW4Yy3egbm_Kjh1EVfqUSkba1s5g5bitqsUvCqc1acmY08CbuTwSOGOOoLp68=s200"
+          class="me-2"
+          height="45"
+          alt="shopsy Logo"
+          loading="lazy"
+        />
+        <small><i><strong>SHOPSY.com</strong></i></small>
+      </a>
+      <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" [routerLink]="['/login']" id="pills-login-tab" data-bs-toggle="pill"
@@ -35,6 +45,18 @@
               {{totalItem}}
             </div></button>
               </li>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
+              <ul></ul>
               <li class="nav-item" role="presentation">
                 <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
@@ -149,7 +171,7 @@
     <br>
     
   
-    <div class="col-md-4 mb-14" style="color:aliceblue">
+    <!-- <div class="col-md-4 mb-14" style="color:aliceblue">
       <div class="card mb-4">
         <div class="card-header py-3">
           <h5 class="mb-0"><strong style="color:red">Billing Total</strong></h5>
@@ -165,12 +187,12 @@
             </li>
             </div>
             </div>
-            </div>
+            </div> -->
   
          
   
            <div>
-          <button class="button-1" type="button"routerLink="/payment" [disabled]="form.invalid">Payment</button>
+          <button class="button-1" type="button" (click)="checkAmount()" [disabled]="form.invalid">Payment of  ₹ {{amount}} </button>
         </div>
         </div>
         </div>
