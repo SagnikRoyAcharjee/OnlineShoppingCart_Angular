@@ -56,6 +56,14 @@ export class ProductsDisplayComponent implements OnInit {
   addToCart(product: any) {
     this.cartService.addToCart(product);
   }
+  check(){
+    if(this.loginService.isLoggedin()){
+      this.router.navigate(['/buy-now'])
+    }
+    else{
+      this.router.navigate(['/login'])
+    }
+  }
 
   
   logout(){

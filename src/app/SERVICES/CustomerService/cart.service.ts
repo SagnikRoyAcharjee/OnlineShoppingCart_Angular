@@ -32,6 +32,7 @@ export class CartService {
     console.log(this.cartItemList);
 
   }
+  
 
   getTotalPrice():number{
     let grandTotal=0;

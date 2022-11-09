@@ -35,6 +35,10 @@ import { PlaceOrderComponent } from './COMPONENTS/CustomerSection/place-order/pl
 import { ContactUsComponent } from './COMPONENTS/CustomerSection/contact-us/contact-us.component';
 import { OrderDetailsComponent } from './COMPONENTS/CustomerSection/order-details/order-details.component';
 import { AboutUsComponent } from './COMPONENTS/CustomerSection/about-us/about-us.component';
+import { BuyNowComponent } from './COMPONENTS/CustomerSection/buy-now/buy-now.component';
+import { PaymentDirectComponent } from './COMPONENTS/CustomerSection/payment-direct/payment-direct.component';
+import { PlaceOrderDirectComponent } from './COMPONENTS/CustomerSection/place-order-direct/place-order-direct.component';
+import { OrderDetailsDirectComponent } from './COMPONENTS/CustomerSection/order-details-direct/order-details-direct.component';
 
 // import { ToastrModule, ToastrService } from 'ngx-toastr';
 
@@ -59,7 +63,11 @@ import { AboutUsComponent } from './COMPONENTS/CustomerSection/about-us/about-us
     PlaceOrderComponent,
     ContactUsComponent,
     OrderDetailsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    BuyNowComponent,
+    PaymentDirectComponent,
+    PlaceOrderDirectComponent,
+    OrderDetailsDirectComponent
 
 
 

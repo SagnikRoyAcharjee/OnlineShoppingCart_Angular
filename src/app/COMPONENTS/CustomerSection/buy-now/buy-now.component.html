@@ -185,7 +185,7 @@
       <tbody>
           
           <tr>
-              <strong><td>Price : ₹ {{amount}} </td></strong>
+              <strong><td>Price : ₹ {{product.price}} </td></strong>
 
           </tr>
           <br>
@@ -202,7 +202,7 @@
           <tr></tr>
           <tr>
               <td><strong > Total Amount : 
-              <i style="color:rgb(200, 6, 6) ;">₹ {{amount}}</i></strong></td>
+              <i style="color:rgb(200, 6, 6) ;">₹ {{product.price}}</i></strong></td>
           </tr>
 
           <br>
@@ -233,7 +233,9 @@
          
   
            <div>
-          <button class="button-1" type="button" (click)="checkAmount()" [disabled]="form.invalid"><strong>Continue</strong></button>
+           <a >
+          <button click="check()"  routerLink="/payment-direct/{{product.id}}" class="button-1" type="button"  [disabled]="form.invalid"><strong>Continue</strong></button>
+           </a>
         </div>
         </div>
         </div>
@@ -263,3 +265,4 @@
     </div>
     <!-- Copyright -->
   </footer>
+

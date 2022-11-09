@@ -2,19 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/MODELS/order.model';
-import { Product } from 'src/app/MODELS/Product.model';
 import { LoginService } from 'src/app/SERVICES/AccountService/login.service';
 import { ProductServiceService } from 'src/app/SERVICES/AdminService/product-service.service';
 import { CartService } from 'src/app/SERVICES/CustomerService/cart.service';
 import { OrderService } from 'src/app/SERVICES/CustomerService/order.service';
-import { LoginComponent } from '../login/login.component';
 
 @Component({
-  selector: 'app-payment',
-  templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css']
+  selector: 'app-payment-direct',
+  templateUrl: './payment-direct.component.html',
+  styleUrls: ['./payment-direct.component.css']
 })
-export class PaymentComponent implements OnInit {
+export class PaymentDirectComponent implements OnInit {
+
   public totalItem: number = 0;
   public amount: any;
   listOrder = this.cartService.getProducts();
@@ -23,7 +22,7 @@ export class PaymentComponent implements OnInit {
 
   product:any;
   constructor(public activatedRoute:ActivatedRoute, public prodService:ProductServiceService, private cartService: CartService, public router: Router, public loginService: LoginService, public orderService: OrderService) { }
-id:any
+id:any;
   ngOnInit(): void {
     this.cartService.getProducts()
       .subscribe(res => {
@@ -34,9 +33,6 @@ id:any
   
         });
         this.getProductById( this.id);
-
-    this.amount = this.cartService.getTotalPrice();
-
   }
   getProductById(id:any){
     this.prodService.getProductById(id).subscribe((res)=>{
@@ -66,20 +62,6 @@ id:any
     ]),
 
   });
-
-  // onPayOnDelivery() {
-  //   this.isSelected = true;
-  //   alert("Are you sure you want to place your order?")
-  //   this.router.navigate(['/place-order'])
-
-  // }
-  // onCard() {
-  //   this.isSelected = false;
-  //   alert("Are you sure you want to place your order?")
-  //   this.router.navigate(['/place-order'])
-
-  // }
-
   get ownerName(): FormControl {
     return this.paymentForm.get("ownerName") as FormControl;
   }
@@ -94,62 +76,48 @@ id:any
   }
 
 
-  
 
-  placeOrderByCashOnDelivery() {
+  placeOrderByCashOnDeliveryDirect() {
     let obj: Order = {} as Order;
     this.listOrder.forEach(data => {
       obj = {
-        billAmount: this.cartService.getTotalPrice(), dateOfOrder: new Date(),
+        billAmount: this.product.price, dateOfOrder: new Date(),
         modeOfPayment: "Cash On Delivery", usersId: 16
       }
       return obj;
     })
-    if(this.cartService.getTotalPrice() == 0){
-      alert("Cannot make a payment of Rs 0.");
-    }
-    else{
+    
     this.orderService.insertOrder(obj).subscribe(res => {
       console.log(res);
-      alert("Are You sure you want to place your order?");
-      this.router.navigate(['/place-order'])
+       alert("We hope you have enjoyed. Thank you for Shopping with us !!!");
+      //  this.router.navigate(['/place-order-direct/:'])
     })
-  }
-
+  
+  
     
-
+  
   }
-
-  placeOrderByCard() {
+  placeOrderByCardDirect() {
     let obj: Order = {} as Order;
     this.listOrder.forEach(data => {
       obj = {
-        billAmount: this.cartService.getTotalPrice(), dateOfOrder: new Date(),
+        billAmount: this.product.price, dateOfOrder: new Date(),
         modeOfPayment: "By Debit Card", usersId: 16
       }
       
       return obj;
     })
-    if(this.cartService.getTotalPrice() == 0){
-      alert("Cannot make a payment. Please enter card details and please order something.");
-    }
-    else {
+    
     this.orderService.insertOrder(obj).subscribe(res => {
       console.log(res);
-      alert("Are you sure you want to place your order?");
-      this.router.navigate(['/place-order'])
+      alert("We hope you have enjoyed. Thank you for Shopping with us !!!");
+      // this.router.navigate(['/place-order-direct'])
     })
 
     
 
-  }
+  
 }
-
-
-
-
-
-
 
   logout(){
     if(this.loginService.isLoggedin()){

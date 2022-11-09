@@ -117,7 +117,7 @@
     
       <div class="form-group">
         <label for="productImage">Image</label>
-        <input type="url" name="productImage" [(ngModel)]="product.productImage">
+        <input type="text" name="productImage" [(ngModel)]="product.productImage">
       </div>
       <div class="form-group">
         <label for="categoryId">Category</label>
@@ -148,15 +148,15 @@
 <br>
   <div class="product-grid">
 <div class="grid">
-<span>_Product Name</span>
-<span>_______________</span>
-<span> Product Description</span>
-<span>_______________</span>
-<span> Product Price</span>
+<span><strong style="background-color:rgb(167, 165, 165)">PRODUCT NAME</strong></span>
+<span><strong>________</strong></span>
+<span> <strong style="background-color:rgb(171, 169, 169)">PRODUCT DESCRIPTION</strong></span>
 <span>_______</span>
+<span> <strong style="background-color:rgb(179, 176, 176)">PRODUCT PRICE</strong></span>
+<span><strong>_____</strong></span>
 <!-- <span>Image</span>
 <span>______</span> -->
-<span>Category Id_</span>
+<span><strong style="background-color:rgb(175, 173, 173)">Category Id</strong></span>
 
 </div>
     <div  class="product-row" *ngFor= "let product of products">
@@ -165,7 +165,7 @@
         
         <span>{{ product.name }}</span>
         <span>{{ product.productDescription }}</span>
-        <span>{{ product.price }}</span>
+        <span>₹ {{ product.price }}</span>
         <!-- <span>{{ product.productImage }}</span> -->
         <span (select)="changeCategory($event)" >{{ product.categoryId}}</span>
         <!-- <span (select)="changeCategory($event)" >{{ product.categoryName}}</span> -->

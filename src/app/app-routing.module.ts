@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CategoryComponent } from './COMPONENTS/AdminSection/category/category.component';
 import { ProductComponent } from './COMPONENTS/AdminSection/product/product.component';
 import { AboutUsComponent } from './COMPONENTS/CustomerSection/about-us/about-us.component';
+import { BuyNowComponent } from './COMPONENTS/CustomerSection/buy-now/buy-now.component';
 import { CartComponent } from './COMPONENTS/CustomerSection/cart/cart.component';
 
 import { CheckoutComponent } from './COMPONENTS/CustomerSection/checkout/checkout.component';
@@ -12,8 +13,11 @@ import { ContactUsComponent } from './COMPONENTS/CustomerSection/contact-us/cont
 import { HomePageComponent } from './COMPONENTS/CustomerSection/home-page/home-page.component';
 
 import { LoginComponent } from './COMPONENTS/CustomerSection/login/login.component';
+import { OrderDetailsDirectComponent } from './COMPONENTS/CustomerSection/order-details-direct/order-details-direct.component';
 import { OrderDetailsComponent } from './COMPONENTS/CustomerSection/order-details/order-details.component';
+import { PaymentDirectComponent } from './COMPONENTS/CustomerSection/payment-direct/payment-direct.component';
 import { PaymentComponent } from './COMPONENTS/CustomerSection/payment/payment.component';
+import { PlaceOrderDirectComponent } from './COMPONENTS/CustomerSection/place-order-direct/place-order-direct.component';
 import { PlaceOrderComponent } from './COMPONENTS/CustomerSection/place-order/place-order.component';
 import { ProductsByCategoryComponent } from './COMPONENTS/CustomerSection/products-by-category/products-by-category.component';
 import { ProductsDisplayComponent } from './COMPONENTS/CustomerSection/products-display/products-display.component';
@@ -66,9 +70,14 @@ const routes: Routes = [
     component: ProductsDisplayComponent
   },
   {
+    path: 'buy-now/:id',
+    component: BuyNowComponent
+  },
+  {
     path: 'view-product-info/:id',
     component: ViewProductInfoComponent
   },
+
   {
     path: 'products-by-category/:id',
     component: ProductsByCategoryComponent
@@ -76,7 +85,7 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
-    
+
 
   },
   {
@@ -84,7 +93,10 @@ const routes: Routes = [
     component: CheckoutComponent,
     canActivate: [AuthGuardService]
   },
-  
+  {
+    path: 'payment-direct/:id',
+    component: PaymentDirectComponent
+  },
   {
     path: 'payment',
     component: PaymentComponent,
@@ -96,9 +108,17 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'place-order-direct/:id',
+    component: PlaceOrderDirectComponent
+  },
+  {
     path: 'order-details',
     component: OrderDetailsComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'order-details-direct/:id',
+    component: OrderDetailsDirectComponent
   },
   {
     path: '**',

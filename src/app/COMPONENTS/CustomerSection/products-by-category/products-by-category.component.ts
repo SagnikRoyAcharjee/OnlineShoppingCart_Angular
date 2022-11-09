@@ -25,13 +25,18 @@ export class ProductsByCategoryComponent implements OnInit {
   product:any;
   id:any;
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(data => {
-      this.searchCategory = data['id'];
-     });
+    // this.activatedRoute.queryParams.subscribe(data => {
+    //   this.searchCategory = data['id'];
+    //  });
 
-     this.prodService.getProductsByCategoryId(this.searchCategory).subscribe(categoryData=>{
-      this.productList=categoryData
-     })
+    //  this.prodService.getProductsByCategoryId(this.searchCategory).subscribe(categoryData=>{
+    //   this.productList=categoryData
+    //  })
+    this.activatedRoute.paramMap.subscribe(params=>{
+      this.id=params.get('id');
+
+      });
+      this.getProductsByCategoryId( this.id);
     // this.getAllProducts();
 
     // this.activatedRoute.paramMap.subscribe(params => {
