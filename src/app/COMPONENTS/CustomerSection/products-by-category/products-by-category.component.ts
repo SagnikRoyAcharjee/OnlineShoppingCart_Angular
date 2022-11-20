@@ -25,13 +25,18 @@ export class ProductsByCategoryComponent implements OnInit {
   product:any;
   id:any;
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(data => {
-      this.searchCategory = data['id'];
-     });
+    // this.activatedRoute.queryParams.subscribe(data => {
+    //   this.searchCategory = data['id'];
+    //  });
 
-     this.prodService.getProductsByCategoryId(this.searchCategory).subscribe(categoryData=>{
-      this.productList=categoryData
-     })
+    //  this.prodService.getProductsByCategoryId(this.searchCategory).subscribe(categoryData=>{
+    //   this.productList=categoryData
+    //  })
+    this.activatedRoute.paramMap.subscribe(params=>{
+      this.id=params.get('id');
+
+      });
+      this.getProductsByCategoryId( this.id);
     // this.getAllProducts();
 
     // this.activatedRoute.paramMap.subscribe(params => {
@@ -90,13 +95,19 @@ export class ProductsByCategoryComponent implements OnInit {
 //     })
 
 // }
-  logout(){
+logout(){
+  if(this.loginService.isLoggedin()){
     this.loginService.removeToken();
     console.log("Log out initiated");
      this.cartService.removeAllCart();
-    alert('Are ypou sure you want to log out ?');
+    alert('Are you sure you want to log out ?');
     this.router.navigate(['']);
   }
+  else{
+    alert("You are not logged in . PLease Login First")
+    this.router.navigate(['/login'])
+  }
+}
   
   addToCart(productList: any) {
     this.cartService.addToCart(productList);

@@ -35,7 +35,7 @@ export class ProductComponent implements OnInit {
   }
 
   constructor(public prodService: ProductServiceService, public catservice:CategoryServiceService,public router:Router, public cartService:CartService,
-    public loginService:LoginService) { }
+    public loginService:LoginService ) { }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -130,11 +130,17 @@ this.prodService.deleteProduct(id)
   }
 
   logout(){
-    this.loginService.removeToken();
-    console.log("Log out initiated");
-    // this.cartService.removeAllCart();
-    alert('Are ypou sure you want to log out ?');
-    this.router.navigate(['']);
+    if(this.loginService.isLoggedin()){
+      this.loginService.removeToken();
+      console.log("Log out initiated");
+       this.cartService.removeAllCart();
+      alert('Are you sure you want to log out ?');
+      this.router.navigate(['']);
+    }
+    else{
+      alert("You are not logged in . PLease Login First")
+      this.router.navigate(['/login'])
+    }
   }
 
   

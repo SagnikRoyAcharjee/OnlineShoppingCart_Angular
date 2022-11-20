@@ -2,10 +2,27 @@
 <nav class="navbar navbar-dark bg-dark" style="height: 74px;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="https://crazyukti.in/wp-content/uploads/2021/09/IMG_20210909_175725.png" class="me-2" height="20"
-                alt="shopsy Logo" loading="lazy" />
-            <small>SHOPSY.com</small>
-        </a>
+            <img
+              src="https://play-lh.googleusercontent.com/tAgbpyJW4Yy3egbm_Kjh1EVfqUSkba1s5g5bitqsUvCqc1acmY08CbuTwSOGOOoLp68=s200"
+              class="me-2"
+              height="45"
+              alt="shopsy Logo"
+              loading="lazy"
+            />
+            <small><i><strong>SHOPSY.com</strong></i></small>
+          </a>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+
+      
+      
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
             <li class="nav-item" role="presentation">
@@ -37,11 +54,32 @@
             <!-- <li class="nav-item" role="presentation">
           <button class="nav-link" [routerLink]="['/']" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Admin</button>
         </li> -->
+        <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+      <ul></ul>
+
         <li class="nav-item" role="presentation">
             <button class="nav-link" [routerLink]="['']" id="pills-register-tab" data-bs-toggle="pill"
                 data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register"
                 aria-selected="false" style="color:crimson" (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</button>
         </li>
+        <ul></ul>
+      
+      
+     
         </ul>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...
@@ -68,13 +106,16 @@
                 <mat-card-content>
                     <!-- <p>Category id : {{productList.categoryId}}</p> -->
                     <a  class="list-group-item">
-                        <strong>{{productList.name}}</strong>
+                        <strong style="color:rgb(9, 9, 9); font-size:medium">{{productList.name}}</strong>
                     </a>
                     <br>
                 
                
                     <p><strong>Price: </strong>₹ {{productList.price}}</p>
-                    <p><strong>Description: </strong>{{productList.productDescription}}</p>
+                    <a routerLink="/view-product-info/{{productList.id}}" style="color:rgb(253, 251, 251)">
+                        <p style="color:rgb(142, 140, 140)">.... See more</p>
+                    </a>
+                    <!-- <p><strong>Description: </strong>{{productList.productDescription}}</p> -->
                 
                 </mat-card-content>
                
@@ -84,6 +125,10 @@
                     
                     
                 </mat-card-actions> -->
+                <a  routerLink="/buy-now/{{productList.id}}">
+                    <button mat-button  style="background-color:rgb(39, 112, 239);color:rgb(255, 254, 254)  "><i class="fas fa-credit-card"></i> Buy Now</button>
+                    </a>
+
                 <mat-card-actions>
                     <button mat-button (click)=addToCart(productList) style="background-color:rgb(37, 164, 21)  "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
